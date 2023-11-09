@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: rgb(244, 244, 244);
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+.C{
+  display: flex;
+  align-items: center;
+}
+li{
+  min-width: 100px;
+  cursor: pointer;
+  margin: 0 1em 0 0 ;
+  transition: .5s;
+  border: transparent;
+  border-radius: 1rem .5rem 1rem .5rem;
+}
+li:hover{
+  background-color: rgb(200,0,0);
+  border-radius: .5rem 1rem .5rem 1rem;
+  border: 1px solid black;
+  border-top: 0;
+  border-bottom: 0;
+}
+li:last-child{
+  background-color: rgb(174, 174, 174);
+    border-radius: 1rem .5rem 1rem .5rem;
+    color: white;
+    overflow: hidden;
+    transition: .5s;
+    display: flex;
+    white-space: nowrap;
+    font-size: 1rem;
+    justify-content: center;
+    border: transparent;
+    align-items: center;
+    padding: 0  .5% .5% .5%;
+    width: 150px;
+    height: 25px;
+    &:hover{
+        background-color: rgb(111, 111, 111);
+        border-radius: .5rem 1rem .5rem 1rem;
+        border: 1px solid black;
+    }
+}
