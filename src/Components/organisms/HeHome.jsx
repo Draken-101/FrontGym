@@ -11,7 +11,7 @@ const D = styled.div`
 
 const I = styled.img`
     position: absolute;
-    width: 100%;
+    width: 200%;
     height: 100vh;
     top: 100px;
     filter: blur(.2rem);

@@ -16,16 +16,16 @@ const B = styled.button`
     width: ${props => props.W ? props.W : "150px"};
     height: ${props => props.H ? props.H : "25px"};
     &:hover{
-        background-color: rgb(200,0,0);
+        background-color: ${props => props.Hov ? props.Hov : "rgb(200,0,0)"};
         border-radius: .5rem 1rem .5rem 1rem;
         border: 1px solid black;
     }
 `;
 
-export default function Boton({wi, he, onCl, text, bgColor}){
+export default function Boton({wi, he, onCl, text, bgColor, bgColorHover}){
     return(
         <>
-            <B onClick={onCl} C={bgColor} W={wi} H={he} className='shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]'>
+            <B onClick={onCl} Hov={bgColorHover} C={bgColor} W={wi} H={he} className='shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]'>
             {text ? text : "Ingresa Texto"}
             </B>
         </>
