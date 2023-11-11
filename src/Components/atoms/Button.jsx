@@ -13,15 +13,18 @@ const B = styled.button`
     border: transparent;
     align-items: center;
     padding: 0  .5% .5% .5%;
-    width: ${props => props.W ? props.W : "150px"};
-    height: ${props => props.H ? props.H : "25px"};
+    width: ${props => props.W ? props.W+"px" : "150px"};
+    height: ${props => props.H ? props.H+"px" : "25px"};
+
     &:hover{
         background-color: ${props => props.Hov ? props.Hov : "rgb(200,0,0)"};
         border-radius: .5rem 1rem .5rem 1rem;
         border: 1px solid black;
     }
-    @media(min-width : 620px){
-        width: ${props => props.W ? props.W/2 : "75px"};
+    @media(max-width : 620px){
+        width: ${props => props.W ? props.W/2+"px" : "75px"};
+        height: ${props => props.H ? props.H/2+"px" : "20px"};
+        font-size: 10px;
     }
 `;
 

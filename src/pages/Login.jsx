@@ -1,9 +1,8 @@
-import Entrada from "../Components/atoms/Entrada";
+import FormLogin from "../Components/organisms/FormLogin";
+
 
 export default function Login(){
     return(
-        <>
-            <Entrada/>
-        </>
+        <FormLogin/>
     );
 }
