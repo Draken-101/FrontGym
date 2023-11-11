@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 const B = styled.button`
-    background-color: ${props => props.C ? props.C : "Red"};
+    background-color: ${props => props.bgC ? props.bgC : "Red"};
     border-radius: 1rem .5rem 1rem .5rem;
-    color: white;
+    color: ${props => props.C ? props.C : "white"};
     overflow: hidden;
     transition: .5s;
     display: flex;
@@ -20,12 +20,15 @@ const B = styled.button`
         border-radius: .5rem 1rem .5rem 1rem;
         border: 1px solid black;
     }
+    @media(min-width : 620px){
+        width: ${props => props.W ? props.W/2 : "75px"};
+    }
 `;
 
-export default function Boton({wi, he, onCl, text, bgColor, bgColorHover}){
+export default function Boton({wi, he, onCl, text, bgColor, bgColorHover, color}){
     return(
         <>
-            <B onClick={onCl} Hov={bgColorHover} C={bgColor} W={wi} H={he} className='shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]'>
+            <B onClick={onCl} C={color} Hov={bgColorHover} bgC={bgColor} W={wi} H={he} className='shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]'>
             {text ? text : "Ingresa Texto"}
             </B>
         </>

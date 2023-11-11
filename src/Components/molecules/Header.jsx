@@ -9,19 +9,16 @@ export default function Options() {
             <Logo/>
             <ul className="C">
                 <li >
-                    <Text text={"Clientes"} size={"15px"} color={"white"} />
+                    Clientes
                 </li>
                 <li>
-                    <Text text={"Ver"} size={"15px"} color={"white"} />
+                    Ver Clientes
                 </li>
                 <li>
-                    <Text text={"Buscar"} size={"15px"} color={"white"} />
-                </li>
-                <li>
-                    <Text text={"Coaches"} size={"15px"} color={"white"} />
+                    Coaching
                 </li>
                 <li className="shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
-                    <Text text={"Registrarse"} size={"15px"} color={"white"} />
+                    Registrarse
                 </li>
             </ul>
         </Header>
