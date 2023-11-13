@@ -3,7 +3,7 @@ import styled from "styled-components";
 const E = styled.input`
     text-decoration: none;
     background-color: ${props => props.bgC ? props.bgC : "white"};
-    padding: 0 0 0 2%;
+    padding: 0 0 0 5%;
     margin: 10px;
     outline: none;
     width: ${props => props.W ? props.W : "250px"};
@@ -16,7 +16,7 @@ const E = styled.input`
 
     &::placeholder{
         color: ${props => props.C ? props.C : "rgb(110,110,110)"};
-        font-size: 18px;
+        font-size: 2vw;
     }
 
     &:focus{
@@ -29,7 +29,12 @@ const E = styled.input`
         width: ${props => props.W ? props.W/2+"px" : "125px"};
         height: ${props => props.H ? props.H/2+"px" : "20px"};
         &::placeholder{
-        font-size: 12px;
+        font-size: 2vw;
+    }
+    }
+    @media(max-width : 320px){
+        &::placeholder{
+        font-size: 2.5vw;
     }
     }
 `;

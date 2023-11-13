@@ -18,7 +18,7 @@ export default function Options() {
                     Coaching
                 </li>
                 <li className="shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
-                    Registrarse
+                    Iniciar Secion
                 </li>
             </ul>
         </Header>

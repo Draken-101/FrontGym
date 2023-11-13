@@ -10,9 +10,9 @@ const D = styled.div`
     align-items: center;
     justify-content:space-around;
     padding:20%;
+        height: 80vh;
     @media(max-width : 620px) {
         flex-direction: column-reverse;
-        height: 70vh;
     }
     @media(max-width : 985px) {
         padding:10%;
@@ -22,11 +22,11 @@ const D = styled.div`
     }
 `;
 
-export default function FormLogin(){
-    const inp = ["Usuario","Contrasena"]
+export default function FormRegisterU(){
+    const inp = ["Nombre","Apellido","Correo","Edad","Peso","","Contrasena","Confirmar Contrasena"]
     return(
         <D>
-            <Form titulo={"Iniciar Secion"} nameButon={"Ingresar"} inputs={inp}/>
+            <Form titulo={"Registrar Usuario"} nameButon={"Registrar"} inputs={inp}/>
             <LogoButon />
         </D>
         

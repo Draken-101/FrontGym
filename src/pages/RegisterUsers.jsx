@@ -1,6 +1,6 @@
 import FormLogin from "../Components/organisms/FormLogin";
 
-export default function Login(){
+export default function RegisterUsers(){
     return(
             <FormLogin/>
     );

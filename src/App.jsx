@@ -1,8 +1,12 @@
-import Login from "./pages/Login"
+
+import FormRegisterU from './Components/organisms/FormRegisterU'
+import Home from './pages/Home'
 
 function App() {
   return (
-    <Login/>
+    <>
+      <FormRegisterU/>
+    </>
   )
 }
 

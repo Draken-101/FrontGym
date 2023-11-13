@@ -10,8 +10,9 @@ const B = styled.button`
     white-space: nowrap;
     font-size: 1rem;
     justify-content: center;
-    border: transparent;
+    border: 1px solid transparent;
     align-items: center;
+    
     padding: 0  .5% .5% .5%;
     width: ${props => props.W ? props.W+"px" : "150px"};
     height: ${props => props.H ? props.H+"px" : "25px"};
@@ -25,6 +26,10 @@ const B = styled.button`
         width: ${props => props.W ? props.W/2+"px" : "75px"};
         height: ${props => props.H ? props.H/2+"px" : "20px"};
         font-size: 10px;
+    }
+    span{
+        
+        filter: drop-shadow(5px 5px 5px rgba(0,0,0,1));
     }
 `;
 

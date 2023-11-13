@@ -11,8 +11,8 @@ const I = styled.img`
     }
 `;
 
-export default function Logo({wxh, filterHover, newImg}){
+export default function Logo({wxh, filterHover, newImg, clas}){
     return(
-        <I F={filterHover} WxH={wxh} src={newImg ? newImg : L}/>
+        <I F={filterHover} className={clas} WxH={wxh} src={newImg ? newImg : L}/>
     );
 }
