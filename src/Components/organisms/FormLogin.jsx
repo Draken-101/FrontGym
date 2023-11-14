@@ -9,7 +9,7 @@ const D = styled.div`
     text-align: center;
     align-items: center;
     justify-content:space-around;
-    padding:20%;
+    padding:10%;
     @media(max-width : 620px) {
         flex-direction: column-reverse;
         height: 70vh;

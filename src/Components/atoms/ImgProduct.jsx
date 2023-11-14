@@ -33,7 +33,7 @@ const Img = styled.button`
 const T = styled.span`
     position: absolute;
     width: 100%;
-    font-size: 1vw;
+    font-size: 15px;
     font-weight:bold;
     color: #ffffff;
     transform: translateX(100%);
@@ -47,10 +47,10 @@ const Label = styled.div`
     justify-content:center;
     align-items:center;
     z-index:10;
-    top: 8px;
-    left:-20px;
+    top: 11px;
+    left:-18px;
     background-color:rgb(95, 0, 0);
-    width: 70px;
+    width: 75px;
     height: 15px;
     transform:rotate(-45deg);
 `;
@@ -70,7 +70,7 @@ export default function ImgProduct({etiqueta}){
         <Img>
             {
                 label && <Label>
-                            <Text size={"1vw"} text={etiqueta} color={"rgb(252, 252, 252)"}/>
+                            <Text size={"10px"} text={etiqueta} color={"rgb(252, 252, 252)"}/>
                         </Label>
             }
             <img src={Logo}/>

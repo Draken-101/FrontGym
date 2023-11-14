@@ -8,7 +8,7 @@ const D = styled.div`
     display: flex;
     text-align: center;
     align-items: center;
-    width: 100px;
+    width: 150px;
     padding: 10px;
     flex-direction: column;
     justify-content:space-around;
@@ -22,8 +22,8 @@ export default function CardProtuct() {
     return (
         <D>
             <ImgProduct  etiqueta={"Rebaja"} />
-            <Text size={".4rem"} color={"rgb(13, 212, 199)"} bold={"600"} text={"Nombre Empresa"} />
-            <Text size={".6rem"} bold={"600"} text={"Nombre Producto"} />
+            <Text size={"11px"} color={"rgb(13, 212, 199)"} bold={"600"} text={"Nombre Empresa"} />
+            <Text size={"15px"} bold={"600"} text={"Nombre Producto"} />
             <div className="valoracion">
 
                 <button>
@@ -48,8 +48,8 @@ export default function CardProtuct() {
 
             </div>
             <Price className=" flex items-center justify-between">
-                <Text text={"$1500" } size={".5rem"} color={"rgb(72, 72, 72)"} tachado={true} bold={"600"}/>
-                <Text text={"$1000"} size={".8rem"} bold={"600"}/>
+                <Text text={"$1500" } size={"10px"} color={"rgb(72, 72, 72)"} tachado={true} bold={"600"}/>
+                <Text text={"$1000"} size={"15px"} bold={"600"}/>
             </Price>
         </D>
     );

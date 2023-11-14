@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-const Header = styled.header`
+const HeaderDiv = styled.header`
+    position: relative;
     width: 100%;
     height: fit-content;
     background-color: rgb(255,0,0);
@@ -12,4 +13,4 @@ const Header = styled.header`
     align-items: center;
 `;
 
-export default Header;
+export default HeaderDiv;

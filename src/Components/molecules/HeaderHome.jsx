@@ -1,11 +1,10 @@
 import '../../index.css';
-import Header from '../atoms/HeaderDiv'
+import HeaderDiv from '../atoms/HeaderDiv'
 import Logo from '../atoms/Logo';
-import Text from "../atoms/Text";
 
-export default function Options() {
+export default function HeaderHome() {
     return (
-        <Header>
+        <HeaderDiv>
             <Logo/>
             <ul className="C">
                 <li >
@@ -21,7 +20,7 @@ export default function Options() {
                     Iniciar Secion
                 </li>
             </ul>
-        </Header>
+        </HeaderDiv>
 
 
     );

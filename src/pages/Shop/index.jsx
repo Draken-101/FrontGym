@@ -1,9 +1,8 @@
-import CardProtuct from "../../Components/molecules/CardProduct";
-
+import ContentShop from "../../Components/organisms/ContentShop";
 
 
 export default function Shop(){
     return(
-        <CardProtuct/>
+        <ContentShop/>
     );
 }
