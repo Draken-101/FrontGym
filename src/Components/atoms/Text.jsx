@@ -5,12 +5,12 @@ const T = styled.p`
     font-size: ${props => props.S ? props.S : "20px"};
     font-weight: ${props => props.B ? props.B : "500"};
     transition: .5s;
-    
+    text-decoration: ${props => props.T ? "line-through": "none"};
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,1));
 `;
 
-export default function Text({ text, size, bold, color }) {
+export default function Text({tachado, text, size, bold, color }) {
     return (
-        <T C={color} S={size} B={bold}>{text ? text : "Ingresar Texto"}</T>
+        <T T={tachado} C={color} S={size} B={bold}>{text ? text : "Ingresar Texto"}</T>
     );
 }

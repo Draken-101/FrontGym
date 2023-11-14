@@ -19,24 +19,29 @@ const D = styled.div`
         flex-wrap: wrap;
         width: 100%;
         height: 40%;
-        :first-child{
-            width: 100%;
-        }
     }
-    :last-child{
-        width: 50vw;
-    }
+`;
+
+const Div = styled.div`
+    display:flex;
+    width: 100%;
+    justify-content:center;
 `;
 
 export default function Form({titulo, inputs, nameButon}){
     return(
         <>
             <D>
-                <Text text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"}/>
+                <Div>
+                    <Text text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"}/>
+                </Div>
+                
                 {inputs.map((input, index) => (
                     <Entrada key={index} text={input} />
                 ))}
-                <Boton clasName=" top-10" text={nameButon} wi={150} color={"black"} bgColorHover={"rgb(98, 98, 98)"} bgColor={"white"}/>
+                <Div>
+                    <Boton clasName=" top-10" text={nameButon} wi={150} color={"black"} bgColor={"white"}/>
+                </Div>
             </D>
         </>
     );

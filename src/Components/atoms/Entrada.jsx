@@ -3,7 +3,7 @@ import styled from "styled-components";
 const E = styled.input`
     text-decoration: none;
     background-color: ${props => props.bgC ? props.bgC : "white"};
-    padding: 0 0 0 5%;
+    padding: 0 0 0 2%;
     margin: 10px;
     outline: none;
     width: ${props => props.W ? props.W : "250px"};
