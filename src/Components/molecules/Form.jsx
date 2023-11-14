@@ -5,25 +5,34 @@ import Boton from "../atoms/Button";
 
 
 const D = styled.div`
+    position: relative;
     display: flex;
     text-align: center;
     align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 10px;
     flex-direction: column;
-    padding:30px;
     justify-content:space-around;
-    @media(min-width : 620px) {
+    @media(max-width : 620px) {
         flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 40%;
+        :first-child{
+            width: 100%;
+        }
+    }
+    :last-child{
+        width: 50vw;
     }
 `;
 
 export default function Form({titulo, inputs, nameButon}){
     return(
         <>
-            <D className=" w-max relative">
-                <div>
-                    <Text text={titulo ? titulo : "Ingresa Titulo"} size={"1px"} bold={"600"}/>
-                </div>
-                
+            <D>
+                <Text text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"}/>
                 {inputs.map((input, index) => (
                     <Entrada key={index} text={input} />
                 ))}

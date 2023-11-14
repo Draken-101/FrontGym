@@ -13,7 +13,7 @@ const D = styled.button`
     height: 300px;
     border-radius: 15px;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px,rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px,rgba(34, 34, 34, 0.4) 5px 5px, rgba(34, 34, 34, 0.3) 10px 10px, rgba(34, 34, 34, 0.2) 15px 15px, rgba(34, 34, 34, 0.1) 20px 20px, rgba(34, 34, 34, 0.05) 25px 25px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px,rgba(34, 34, 34, 0.4) 5px 5px, rgba(34, 34, 34, 0.3) 10px 10px, rgba(34, 34, 34, 0.2) 15px 15px, rgba(34, 34, 34, 0.1) 20px 20px, rgba(34, 34, 34, 0.05) 25px 25px;
     background: linear-gradient(to right, rgb(255, 255, 255),rgb(98, 98, 98));
 
     &:hover span{
@@ -37,11 +37,12 @@ const D = styled.button`
         }
     }
     @media(max-width : 620px) {
+        position: relative;
         width: 80px;
         height: 80px;
         span{
-            font-size: 15px;
-            top: 64px;
+            font-size: 8px;
+            top: 32px;
         }
     }
 
@@ -51,7 +52,7 @@ const T = styled.span`
     position: relative;
     width: 100%;
     top: 125px;
-    font-size: 1vw;
+    font-size: 30px;
     font-weight:bold;
     z-index: 10;
     object-fit:cover;

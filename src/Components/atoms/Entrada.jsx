@@ -29,12 +29,12 @@ const E = styled.input`
         width: ${props => props.W ? props.W/2+"px" : "125px"};
         height: ${props => props.H ? props.H/2+"px" : "20px"};
         &::placeholder{
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
     }
     @media(max-width : 320px){
         &::placeholder{
-        font-size: 2.5vw;
+        font-size: 2%.5;
     }
     }
 `;

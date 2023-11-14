@@ -6,28 +6,23 @@ const D = styled.div`
     position: relative;
     display: flex;
     z-index: 10;
+    padding: 10px;
     text-align: center;
     align-items: center;
     justify-content:space-around;
-    padding:20%;
-        height: 80vh;
+    height: 100vh;
     @media(max-width : 620px) {
         flex-direction: column-reverse;
-    }
-    @media(max-width : 985px) {
-        padding:10%;
-    }
-    @media(max-width : 755px) {
-        padding:0%;
+        height: 50vh;
     }
 `;
 
 export default function FormRegisterU(){
-    const inp = ["Nombre","Apellido","Correo","Edad","Peso","","Contrasena","Confirmar Contrasena"]
+    const inp = ["Nombre","Apellido","Correo","Edad","Peso","Contraseña","Confirmar Contraseña"]
     return(
         <D>
             <Form titulo={"Registrar Usuario"} nameButon={"Registrar"} inputs={inp}/>
-            <LogoButon />
+            <LogoButon subirImg={"y"} />
         </D>
         
     );
