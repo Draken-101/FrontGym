@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import background from '../../assets/Images/bg-Image.jpg'
 import '../../index.css';
-import Header from "../molecules/HeaderHome";
+import HeaderHome from "../molecules/HeaderHome";
 import ContentHome from "../molecules/ContentHome";
 
 

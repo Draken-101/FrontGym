@@ -13,6 +13,7 @@
     width: 20px;
     font-size: 10px;
     min-width: fit-content;
+    filter:drop-shadow(5px 5px 5px rgba(0,0,0,1));
   }
   li:last-child{
     width: 20px;

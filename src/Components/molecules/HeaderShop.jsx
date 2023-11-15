@@ -6,12 +6,18 @@ import { BiCart } from "react-icons/bi";
 export default function HeaderShop() {
     return (
         <HeaderDiv>
-            <Logo/>
+            <Logo wxh={"50px"}/>
             <ul className="C">
                 <li>
                     Coaching
                 </li>
-                <li className="shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+                <li>
+                    Perfil
+                </li>
+                <li>
+                    Home
+                </li>
+                <li>
                     <BiCart/>
                     <span>Ver Carrito</span>
                 </li>
