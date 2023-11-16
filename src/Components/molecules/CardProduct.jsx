@@ -9,6 +9,7 @@ const D = styled.div`
     text-align: center;
     align-items: center;
     width: 150px;
+    height: 250px;
     padding: 10px;
     flex-direction: column;
     justify-content:space-around;

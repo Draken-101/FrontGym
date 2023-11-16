@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HeaderDiv = styled.header`
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: fit-content;
     background-color: rgb(255,0,0);
     padding: 15px 0 15px 0;

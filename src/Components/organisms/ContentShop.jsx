@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CardProtuct from "../molecules/CardProduct";
 import HeaderShop from "../molecules/HeaderShop";
 import ControllerShop from "../molecules/ControllerShop";
+import '../../assets/Styles/ContentShop.css'
 
 
 const D = styled.div`
@@ -33,16 +34,7 @@ export default function ContentShop() {
             }}>
                 <ControllerShop/>
             </div>
-            <div style={{
-                overflow:"scroll",
-                display: "flex",
-                position:"relative",
-                flexWrap: "wrap",
-                width: "70%",
-                height:"100vh",
-                justifyContent: "center",
-                gap: "12px",
-            }}>
+            <div className="ContainerProducts">
                 <CardProtuct />
                 <CardProtuct />
                 <CardProtuct />

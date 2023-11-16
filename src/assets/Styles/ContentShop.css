@@ -1,0 +1,22 @@
+.ContainerProducts{
+    overflow-y:scroll;
+    overflow-x: hidden;
+    display: flex;
+    position:relative;
+    flex-wrap: wrap;
+    width: 70%;
+    height:100vh;
+    justify-content: center;
+    gap: 12px;
+    scroll-behavior: smooth;
+}
+.ContainerProducts::-webkit-scrollbar{
+    background-color: transparent;
+    width: 10px;
+}
+
+.ContainerProducts::-webkit-scrollbar-thumb{
+    background-color: rgb(124, 0, 0);
+    border-radius: 5px 15px 5px 15px;
+    height: 5vh;
+}

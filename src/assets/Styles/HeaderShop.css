@@ -63,7 +63,7 @@ li:last-child {
   transition: .5s;
   display: flex;
   white-space: nowrap;
-  font-size: 1rem;
+  font-size: 15px;
   justify-content: center;
   border: transparent;
   align-items: center;
@@ -76,7 +76,7 @@ li:last-child {
 li:last-child:hover {
   background-color: rgb(111, 111, 111);
   border-radius: .5rem 1rem .5rem 1rem;
-  width: 150px;
+  width: 250px;
   border: 1px solid black;
   justify-content: start;
 }

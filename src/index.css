@@ -3,9 +3,19 @@
 @tailwind utilities;
 
 body {
+  overflow-x: hidden;
   width: 100%;
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
+body::-webkit-scrollbar{
+  background: transparent;
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: rgb(195, 0, 0);
+  border-radius: 5px 15px 5px 15px;
+}
+
 
 .C {
   display: flex;
