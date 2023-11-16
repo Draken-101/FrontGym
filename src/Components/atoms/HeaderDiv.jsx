@@ -3,13 +3,13 @@ import styled from "styled-components";
 const HeaderDiv = styled.header`
     position: relative;
     width: 100vw;
-    height: fit-content;
+    height: 15vh;
     background-color: rgb(255,0,0);
-    padding: 15px 0 15px 0;
+    padding: 5px 0 5px 0;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 `;
 

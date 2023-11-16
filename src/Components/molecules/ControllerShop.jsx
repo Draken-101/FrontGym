@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Entrada from "../atoms/Entrada";
+import List from "../atoms/List";
 
 const D = styled.div`
     position: relative;
@@ -10,7 +12,8 @@ const D = styled.div`
 export default function ControllerShop(){
     return(
         <D>
-            a 
+            <Entrada text={"Buscar"} color={"rgb(197, 197, 197)"} wi={"80%"}/>
+            <List/>
         </D>
     );
 }
