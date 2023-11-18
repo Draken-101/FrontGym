@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import HeaderCarShop from "../molecules/HeaderCarShop";
-import Logo from "../atoms/Logo";
-import { useState } from "react";
-import Entrada from "../atoms/Entrada";
 import Boton from "../atoms/Button";
+import ContentCarShop from "../molecules/ContentCarShop";
 
 const D = styled.div`
     position: relative;
@@ -16,62 +14,7 @@ const D = styled.div`
     }
 `;
 
-const Count = styled.input`
-    width: 30px;
-    height:10px;
-    padding:0 0 0 5px;
-    font-size: 5px;
-    font-weight:bold;
-    border:0;
-    text-decoration:none;
-    text-align: center;
-    border-radius: 5px 15px 5px 15px;
-    outline: none;
-    border-bottom:1px solid black;
-`;
-
-const Table = styled.div`
-    display:flex;
-    width:100%;
-    height:75vh;
-    flex-direction:column;
-    background-color:rgb(174, 174, 174);
-    overflow-y:scroll;
-    overflow-x:hidden;
-    &::-webkit-scrollbar{
-    width: 0px;
-}
-`;
-
-const Tr = styled.div`
-    align-items: center;
-    display: flex;
-    position:relative;
-    width: 100vw;
-    height: 50px;
-`;
-
-const Th = styled.div`
-    width:30%;
-    height: 50px;
-    font-size:10px;
-    text-align:left;
-    padding: 0 0 0 5px;
-    border-bottom:1px solid black;
-    border-style:dashed;
-`;
-
-const Td = styled.div`
-    width: 30%;
-    font-size:10px;
-`;
-
 export default function CarS(){
-    const pre = 100
-    const [precio, setPrecio] = useState(pre)
-    const calcularPrecio = (p) => {
-        setPrecio(pre*p.target.value);
-    }
     return(
         <D>
             <div style={{
@@ -82,32 +25,7 @@ export default function CarS(){
             }} className="">
                 <HeaderCarShop />
             </div>
-            <Table>
-                <Tr>
-                    <Th>Producto</Th>
-                    <Th>Nombre</Th>
-                    <Th>Precio</Th>
-                    <Th>Cantidad</Th>
-                </Tr>
-
-                <Tr>
-                    <Td>
-                        <Logo wxh={"50px"}/>
-                    </Td>
-                    <Td>
-                        C4-600mg
-                    </Td>
-                    <Td>
-                        ${precio}
-                    </Td>
-                    <Td style={{
-                        padding:"0 0 0 10px"
-                    }}>
-                        <Count type="number" min={1} on onChange={calcularPrecio}/>
-                    </Td>
-                </Tr>
-                
-            </Table>
+            <ContentCarShop/>
             <Boton text={"Realizar comprar"} wi={"300"} />
         </D>
     );
