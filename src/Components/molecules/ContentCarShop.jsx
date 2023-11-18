@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Logo from "../atoms/Logo";
+import '../../assets/Styles/ContentCarShop.css'
 import { useState } from "react";
 
 const Count = styled.input`
@@ -19,7 +20,8 @@ const Count = styled.input`
 const Table = styled.div`
     display:flex;
     width:90vw;
-    height:75vh;
+    position: relative;
+    max-height:75vh;
     align-items: center;
     flex-direction:column;
     overflow-y:scroll;
@@ -40,9 +42,12 @@ const Tr = styled.div`
     position: relative;
     width: 100%;
     height: fit-content;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     border-style: dashed;
+    &:first-child{
+        border-top:0;
+    }
+
 `;
 
 const Th = styled.div`
@@ -70,39 +75,57 @@ const D = styled.div`
     background-color: transparent;
     box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.7);
 `;
+const Total = styled.div`
+    align-items: center;
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    border-bottom: 1px solid black;
+    border-style: dashed;
 
-export default function ContentCarShop(){
+`;
+
+export default function ContentCarShop() {
     const pre = 100
     const [precio, setPrecio] = useState(pre)
     const calcularPrecio = (p) => {
-        setPrecio(pre*p.target.value);
+        setPrecio(pre * p.target.value);
     }
-    return(
-        <Table>
-            <Tr>
-                <Th>Producto</Th>
-                <Th>Nombre</Th>
-                <Th>Precio</Th>
-                <Th>Cantidad</Th>
-            </Tr>
-            <Tr>
-                <Td>
-                    <D>
-                        <Logo wxh={"50px"} newImg={""}/>
-                    </D>
-                </Td>
-                <Td>
-                    C4-600mg
-                </Td>
-                <Td>
-                    ${precio}
-                </Td>
-                <Td style={{
-                    padding:"0 0 0 10px"
-                }}>
-                    <Count type="number" min={1} onChange={calcularPrecio}/>
-                </Td>
-            </Tr>
-        </Table>
+    return (
+        <div>
+            <Table>
+                <Tr className="">
+                    <Th>Producto</Th>
+                    <Th>Nombre</Th>
+                    <Th>Cantidad</Th>
+                    <Th>Precio</Th>
+                </Tr>
+                <Tr>
+                    <Td>
+                        <D>
+                            <Logo wxh={"50px"} newImg={""} />
+                        </D>
+                    </Td>
+                    <Td>
+                        C4-600mg
+                    </Td>
+                    <Td style={{
+                        padding: "0 0 0 10px"
+                    }}>
+                        <Count type="number" min={1} onChange={calcularPrecio} />
+                    </Td>
+                    <Td>
+                        ${precio}
+                    </Td>
+                </Tr>
+            </Table>
+            <Total>
+                    <Th></Th>
+                    <Th></Th>
+                    <Th>Total</Th>
+                    <Th>${precio}</Th>
+            </Total>
+        </div>
     );
 }

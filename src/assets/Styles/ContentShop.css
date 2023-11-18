@@ -1,12 +1,13 @@
 .ContainerProducts{
-    overflow-y:scroll;
     overflow-x: hidden;
+    overflow-y:scroll;
     display: flex;
     flex-wrap: wrap;
     width: 70%;
-    height:85vh;
+    height:91vh;
     justify-content: center;
 }
 .ContainerProducts::-webkit-scrollbar{
     width: 0px;
+    height: 0px;
 }

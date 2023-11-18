@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Form from "../molecules/Form";
 import LogoButon from "../molecules/LogoButtton";
 import styled from "styled-components";
@@ -27,7 +28,8 @@ export default function FormLogin(){
     return(
         <D>
             <Form titulo={"Iniciar Secion"} nameButon={"Ingresar"} inputs={inp}/>
-            <LogoButon />
+            
+            <Link to={"/"}><LogoButon /></Link>
         </D>
         
     );
