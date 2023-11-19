@@ -5,11 +5,10 @@ import Text from "../atoms/Text";
 import { Link } from "react-router-dom";
 
 const Ul = styled.ul`
-    width: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 5px;
+    gap: 5%;
 `;
 
 const Li = styled.li`
@@ -37,16 +36,17 @@ const Li = styled.li`
     }
 `;
 
-export default function HeaderCarShop(){
-    return(
+export default function HeaderCarShop() {
+    return (
         <HeaderDiv>
-            <Logo wxh={"35px"}/>
+            <Logo wxh={"35px"} />
             <Ul>
-                <Text text={"Carrito de compras"} color={"white"} size={"4vw"}/>
-                <Li>
-                    <Link to={"/Shop"}>Salir</Link>
-                    
-                </Li>
+                <Text text={"Carrito de compras"} color={"white"} size={"4vw"} />
+                <Link to={"/Shop"}>
+                    <Li>
+                        Salir
+                    </Li>
+                </Link>
             </Ul>
         </HeaderDiv>
     );
