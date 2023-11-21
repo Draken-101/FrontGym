@@ -8,35 +8,35 @@
     flex-direction: row-reverse;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,1));
 }
-.valoracion button {
+.valoracion .b {
     background-color: initial;
     
     border: 0;
     color: var(--color-inactivo);
     transition: 1s all;
 }
-.valoracion button:hover {
+.valoracion .b:hover {
     cursor: pointer;
     color: var(--color-hover);
     transform: rotate(360deg);
 }
-button:nth-child(1):hover ~ button {
+.b:nth-child(1):hover ~ .b {
     color: var(--color-hover);
     transform: rotate(360deg);
 }
-button:nth-child(2):hover ~ button {
+.b:nth-child(2):hover ~ .b {
     color: var(--color-hover);
     transform: rotate(360deg);
 }
-button:nth-child(3):hover ~ button {
+.b:nth-child(3):hover ~ .b {
     color: var(--color-hover);
     transform: rotate(360deg);
 }
-button:nth-child(4):hover ~ button {
+.b:nth-child(4):hover ~ .b {
     color: var(--color-hover);
     transform: rotate(360deg);
 }
-button:nth-child(5):hover ~ button {
+.b:nth-child(5):hover ~ .b {
     color: var(--color-hover);
     transform: rotate(360deg);
 }

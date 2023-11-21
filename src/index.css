@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 body {
+  display: flex;
   overflow: hidden;
   width: 100%;
+  flex-wrap: nowrap;
+  background-color: rgb(229, 229, 229);
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 body::-webkit-scrollbar{

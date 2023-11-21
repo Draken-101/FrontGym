@@ -27,23 +27,23 @@ export default function CardProtuct() {
             <Text size={"15px"} bold={"600"} text={"Nombre Producto"} />
             <div className="valoracion">
 
-                <button>
+                <button className="b">
                     <i className="fas fa-star"></i>
                 </button>
 
-                <button>
+                <button className="b">
                     <i className="fas fa-star"></i>
                 </button>
 
-                <button>
+                <button className="b">
                     <i className="fas fa-star"></i>
                 </button>
 
-                <button>
+                <button className="b">
                     <i className="fas fa-star"></i>
                 </button>
 
-                <button>
+                <button className="b">
                     <i className="fas fa-star"></i>
                 </button>
 
