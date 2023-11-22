@@ -2,15 +2,17 @@ import styled from "styled-components";
 import Text from "../atoms/Text";
 import Entrada from "../atoms/Entrada";
 import Boton from "../atoms/Button";
+import { useState } from "react";
 
 
-const D = styled.div`
+const D = styled.form`
     position: relative;
     display: flex;
     text-align: center;
     align-items: center;
     width: 50%;
-    height: 100%;
+    height: fit-content;
+    gap: 5px;
     padding: 10px;
     flex-direction: column;
     justify-content:space-around;
@@ -18,7 +20,6 @@ const D = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-        height: 40%;
     }
 `;
 
@@ -28,19 +29,22 @@ const Div = styled.div`
     justify-content:center;
 `;
 
-export default function Form({titulo, inputs, nameButon}){
-    return(
+export default function Form({ titulo, inputs, nameButon }) {
+    const [error, setError] = useState('');
+
+
+    return (
         <>
-            <D>
+            <D action="submit">
                 <Div>
-                    <Text text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"}/>
+                    <Text text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"} />
                 </Div>
-                
+
                 {inputs.map((input, index) => (
-                    <Entrada key={index} text={input} />
+                    <Entrada text={input.name} tipo={input.type}/>
                 ))}
                 <Div>
-                    <Boton clasName=" top-10" text={nameButon} wi={150} color={"black"} bgColor={"white"}/>
+                    <Boton clasName=" top-10" text={nameButon} wi={150} color={"black"} bgColor={"white"} />
                 </Div>
             </D>
         </>

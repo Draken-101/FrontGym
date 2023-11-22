@@ -7,15 +7,21 @@ const D = styled.div`
     position: relative;
     display: flex;
     text-align: center;
+    border: none;
     align-items: center;
     width: 150px;
     height: 250px;
     padding: 10px;
+    gap: 5px;
     flex-direction: column;
     justify-content:space-around;
 `;
 
 const Price = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
     width: 100%;
 `;
 

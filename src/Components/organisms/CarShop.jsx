@@ -26,7 +26,7 @@ export default function CarS(){
                 <HeaderCarShop />
             </div>
             <ContentCarShop/>
-            <Boton text={"Realizar comprar"} wi={"300"} />
+            <Boton text={"Realizar compra"} wi={"250"} />
         </D>
     );
 }

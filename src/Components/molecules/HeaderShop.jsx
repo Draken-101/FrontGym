@@ -31,7 +31,7 @@ const Li = styled.li`
     }
     
     @media(min-width: 550px) {
-        width: 150px;
+        width: 20vw;
     }
 `;
 

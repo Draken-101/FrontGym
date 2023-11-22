@@ -3,8 +3,8 @@
     overflow-y:scroll;
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
-    height:91vh;
+    width: 69%;
+    height:90%;
     justify-content: center;
 }
 .ContainerProducts::-webkit-scrollbar{

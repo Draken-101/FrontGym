@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Logo from "../atoms/Logo";
 import Text from "../atoms/Text";
+import HeadAdmin from "../molecules/HeadAdmin";
 
 const D = styled.div`
     position: relative;
@@ -13,7 +14,7 @@ const D = styled.div`
     padding: 5%;
     border-radius: 0 15px 15px 0;
     left: 24vw;
-    margin-top: 2vh;
+    margin: 2vh;
     height: 96vh;
     background-color: white;
 `;
@@ -56,8 +57,7 @@ const Td = styled.td`
 export default function AdminUsers(){
     return(
         <D>
-            <Logo/>
-            <Text text={"Extravagym"} size={"5vw"}/>
+            <HeadAdmin/>
             <Table>
                 <Tr>
                     <Th><Text text={"Miembros de Gym"} size={"25px"} color={"white"}/></Th>

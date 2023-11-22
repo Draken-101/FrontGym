@@ -28,7 +28,9 @@ const Li = styled.li`
         background-color: rgb(116, 0, 0);
         border-radius: 15px 5px 15px 5px;
     }
-    
+    a {
+        text-decoration: none;
+    }
     @media(min-width: 550px) {
         width: 150px;
     }
@@ -41,7 +43,7 @@ export default function HeaderHome() {
             <Ul>
                 <Link to={"/Shop"}>
                     <Li >
-                        Tienda
+                        <a>Tienda</a>
                     </Li>
                 </Link>
                 <Link to={"/Login"}>

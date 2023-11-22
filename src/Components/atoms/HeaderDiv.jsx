@@ -5,7 +5,6 @@ const HeaderDiv = styled.header`
     width: 100vw;
     height: 100%;
     background-color: rgb(255,0,0);
-    padding: 5px;
     text-align: center;
     display: flex;
     justify-content: space-around;

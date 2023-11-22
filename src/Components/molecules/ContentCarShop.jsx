@@ -4,8 +4,8 @@ import '../../assets/Styles/ContentCarShop.css'
 import { useState } from "react";
 
 const Count = styled.input`
-    width: 30px;
-    height:10px;
+    width: 50%;
+    height: 2.5vh;
     padding:0 0 0 5px;
     font-size: 5px;
     font-weight:bold;
@@ -42,6 +42,7 @@ const Tr = styled.div`
     position: relative;
     width: 100%;
     height: fit-content;
+    border:0;
     border-top: 1px solid black;
     border-style: dashed;
     &:first-child{
@@ -54,10 +55,11 @@ const Th = styled.div`
     display: flex;
     width: 30%;
     height:20px;
-    font-size: 10px;
+    font-size: 2vw;
     align-items: center;
     text-align: left;
-    padding: 0 0 0 5px;
+    font-weight: bolder;
+    padding: 5px 0 5px 5px;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,.5));
 `;
 
@@ -67,7 +69,7 @@ const Td = styled.div`
     width: 30%;
     height: 100%;
     padding: 5px;
-    font-size: 10px;
+    font-size: 3vw;
 `;
 
 const D = styled.div`
@@ -80,6 +82,7 @@ const Total = styled.div`
     display: flex;
     position: relative;
     width: 100%;
+    border:0;
     height: fit-content;
     border-bottom: 1px solid black;
     border-style: dashed;
@@ -104,7 +107,7 @@ export default function ContentCarShop() {
                 <Tr>
                     <Td>
                         <D>
-                            <Logo wxh={"50px"} newImg={""} />
+                            <Logo wxh={"15vw"} newImg={""} />
                         </D>
                     </Td>
                     <Td>

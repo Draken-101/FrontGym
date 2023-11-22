@@ -1,10 +1,10 @@
 import ControllAdmin from "../../Components/organisms/ControllAdmin";
 
 
-export default function Administration(){
+export default function Administration({onClick, v}){
     return(
         <>
-            <ControllAdmin/>
+            <ControllAdmin oC={onClick} V={v}/>
         </>
     );
 }

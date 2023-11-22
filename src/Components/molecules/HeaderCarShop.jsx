@@ -6,21 +6,22 @@ import { Link } from "react-router-dom";
 
 const Ul = styled.ul`
     display: flex;
+    width: 60vw;
     align-items: center;
-    justify-content: space-between;
-    gap: 5%;
+    justify-content: center;
+    gap: 10%;
 `;
 
 const Li = styled.li`
     position: relative;
     display: flex;
     color: white;
-    width: 100px;
+    width: 10vw;
     cursor: pointer;
     align-items: center;
     transition: .5s;
     justify-content: center;
-    font-size: 3vw;
+    font-size: 2vw;
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
     border-radius: 5px 15px 5px 15px;
@@ -32,7 +33,7 @@ const Li = styled.li`
         border-top: 1px solid black;
     }
     @media(min-width: 550px) {
-        width: 250px;
+        width: 15vw;
     }
 `;
 
@@ -41,7 +42,7 @@ export default function HeaderCarShop() {
         <HeaderDiv>
             <Logo wxh={"35px"} />
             <Ul>
-                <Text text={"Carrito de compras"} color={"white"} size={"4vw"} />
+                <Text text={"Carrito de compras"} color={"white"} size={"2vw"} />
                 <Link to={"/Shop"}>
                     <Li>
                         Salir

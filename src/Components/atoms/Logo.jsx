@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import L from '../../assets/Images/Logo.png'
 const I = styled.img`
+    position: ${props => props.P ? props.P : "relative"};
     width: ${props => props.WxH ? props.WxH : "80px"};
     height: ${props => props.WxH ? props.WxH : "80px"};
     transition-duration:1s;
@@ -11,8 +12,8 @@ const I = styled.img`
     }
 `;
 
-export default function Logo({wxh, filterHover, newImg, clas}){
+export default function Logo({wxh, filterHover, newImg, position}){
     return(
-        <I F={filterHover} className={clas} WxH={wxh} src={newImg ? newImg : L}/>
+        <I F={filterHover} P={position} WxH={wxh} src={newImg ? newImg : L}/>
     );
 }

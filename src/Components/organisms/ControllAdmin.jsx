@@ -15,7 +15,7 @@ const D = styled.div`
     height: 96vh;
     background-color: red;
     border-radius: 15px 0 0 15px;
-    margin: 2vh 0 0 4vw;
+    margin: 2vh 0 2vh 4vw;
 `;
 
 const Button = styled.button`
@@ -43,28 +43,35 @@ const Button = styled.button`
     }
 `;
 
-export default function ControllAdmin() {
+const Div = styled.div`
+    display: ${props => props.Vis };
+`;  
+
+export default function ControllAdmin({oC, V}) {
     return (
-        <D>
-            <CardPerfil />
+        <Div Vis={V}>
+            <D>
+                <CardPerfil />
 
-            <Link to={"/Users"} className=" w-4/5">
-                <Button><GiBiceps />Miembros</Button>
-            </Link>
+                <Link to={"/Users"} className=" w-4/5">
+                    <Button><GiBiceps />Miembros</Button>
+                </Link>
 
-            <Link to={"/Employees"} className=" w-4/5">
-                <Button><GiMuscularTorso />Empleados</Button>
-            </Link>
+                <Link to={"/Employees"} className=" w-4/5">
+                    <Button><GiMuscularTorso />Empleados</Button>
+                </Link>
 
-            <Link to={"/Products"} className=" w-4/5">
-                <Button><BiCube />Productos</Button>
-            </Link>
-            <Link to={"/PayMembership"} className=" w-4/5">
-                <Button><LiaCcDinersClub />Pagar Membrecia</Button>
-            </Link>
-            <Link to={"/"} className=" w-4/5">
-                <Button><CiLogout /> Salir</Button>
-            </Link>
-        </D>
+                <Link to={"/Products"} className=" w-4/5">
+                    <Button><BiCube />Productos</Button>
+                </Link>
+                <Link to={"/PayMembership"} className=" w-4/5">
+                    <Button><LiaCcDinersClub />Pagar Membrecia</Button>
+                </Link>
+                <Link to={"/"} className=" w-4/5">
+                    <Button onClick={oC}><CiLogout /> Salir</Button>
+                </Link>
+            </D>
+        </Div>
+        
     );
 }

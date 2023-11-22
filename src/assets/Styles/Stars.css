@@ -5,13 +5,16 @@
 }
 .valoracion {
     display: flex;
+    justify-content: center;
+    width: 70%;
     flex-direction: row-reverse;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,1));
 }
 .valoracion .b {
+    position: relative;
     background-color: initial;
-    
     border: 0;
+    width: 18px;
     color: var(--color-inactivo);
     transition: 1s all;
 }

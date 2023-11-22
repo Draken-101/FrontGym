@@ -5,20 +5,46 @@ import styled from "styled-components";
 const D = styled.div`
     position: relative;
     display: flex;
+    justify-content: center;
+    width: 100vw;
     z-index: 10;
     padding: 10px;
     text-align: center;
     align-items: center;
     justify-content:space-around;
-    height: 100vh;
     @media(max-width : 620px) {
         flex-direction: column-reverse;
-        height: 50vh;
+        padding: 10% 0 0 0;
     }
 `;
 
-export default function FormRegisterU(){
-    const inp = ["Nombre","Apellido","Correo","Edad","Peso","Contraseña","Confirmar Contraseña"]
+export default function FormRegisterU(){  
+    const inp = [
+        {
+            name: "Nombre",
+            type: "text"
+        },
+        {
+            name: "Apellido",
+            type: "text"
+        },
+        {
+            name: "Edad",
+            type: "number"
+        },
+        {
+            name: "Peso",
+            type: "number"
+        },
+        {
+            name: "Contraseña",
+            type: "password"
+        },
+        {
+            name: "Confirmar Contraseña",
+            type: "password"
+        }
+    ]
     return(
         <D>
             <Form titulo={"Registrar Usuario"} nameButon={"Registrar"} inputs={inp}/>

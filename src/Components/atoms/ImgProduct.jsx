@@ -11,8 +11,8 @@ const Img = styled.button`
     overflow:hidden;
     background-color: rgba(255, 0, 0, 0.427);
     width: 100%;
-    height: 100%;
-    margin:0 0 10% 0;
+    gap: ;
+    border: none;
     border-radius:5px;
     transition:.5s;
     filter:drop-shadow(5px 5px 5px rgba(0,0,0,1));
@@ -73,7 +73,11 @@ export default function ImgProduct({etiqueta}){
                             <Text size={"10px"} text={etiqueta} color={"rgb(252, 252, 252)"}/>
                         </Label>
             }
-            <img src={Logo}/>
+            <img src={Logo} style={{
+                position:"relative",
+                width:"100%",
+                height:"100%"
+            }}/>
             <T >Comprar</T>
         </Img>
     );

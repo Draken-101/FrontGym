@@ -5,19 +5,29 @@ import userContext from './context/userContext'
 import Shop from './pages/Shop';
 import CarShop from './pages/CarShop';
 import './index.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Administration from './pages/Administration';
 import Users from './pages/Users';
 import PayMembership from './pages/PayMembership';
 import Products from './pages/Products';
 import Employees from './pages/Employees';
+import { useState } from 'react';
 
 function App() {
+  const [act, setAct] = useState(true);
+
+  const Activate = () => {
+      setAct(false);
+  }
+
   return (
     <>
-      <Administration/>
+      {
+        act ? <Administration onClick={Activate} v={"none"}/> : <Administration onClick={Activate} v={"none"}/>
+      }
       <Routes>
-        <Route path='/' element={<Administration/>}/>
+      <Route path='/Admin' element={<Administration onClick={Activate}/>}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/PayMembership' element={<PayMembership/>}/>
         <Route path='/Products' element={<Products/>}/>
         <Route path='/Employees' element={<Employees/>}/>
