@@ -9,12 +9,12 @@ const D = styled.div`
     text-align: center;
     border: none;
     align-items: center;
-    width: 150px;
-    height: 250px;
-    padding: 10px;
-    gap: 5px;
+    width: 20vw;
+    height: fit-content;
+    padding: 2vw;
+    gap: .5vh;
     flex-direction: column;
-    justify-content:space-around;
+    justify-content:center;
 `;
 
 const Price = styled.div`
@@ -29,9 +29,9 @@ export default function CardProtuct() {
     return (
         <D>
             <ImgProduct  etiqueta={"Rebaja"} />
-            <Text size={"11px"} color={"rgb(13, 212, 199)"} bold={"600"} text={"Nombre Empresa"} />
-            <Text size={"15px"} bold={"600"} text={"Nombre Producto"} />
-            <div className="valoracion">
+            <Text size={"1.5vw"} color={"rgb(13, 212, 199)"} bold={"600"} text={"Nombre Empresa"} />
+            <Text size={"2.5vw"} bold={"600"} text={"Nombre Producto"} />
+            {/* <div className="valoracion">
 
                 <button className="b">
                     <i className="fas fa-star"></i>
@@ -53,10 +53,10 @@ export default function CardProtuct() {
                     <i className="fas fa-star"></i>
                 </button>
 
-            </div>
+            </div> */}
             <Price className=" flex items-center justify-between">
-                <Text text={"$1500" } size={"10px"} color={"rgb(72, 72, 72)"} tachado={true} bold={"600"}/>
-                <Text text={"$1000"} size={"15px"} bold={"600"}/>
+                <Text text={"$1500" } size={"2vw"} color={"rgb(72, 72, 72)"} tachado={true} bold={"600"}/>
+                <Text text={"$1000"} size={"2.5vw"} bold={"600"}/>
             </Price>
         </D>
     );

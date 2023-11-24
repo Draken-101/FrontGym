@@ -8,8 +8,12 @@ import { Link } from 'react-router-dom';
 
 const Ul = styled.ul`
     display: flex;
+    width: 70vw;
+    height: fit-content;
     align-items: center;
     justify-content: end;
+    padding:0;
+    margin:0;
     gap: 5%;
 `;
 
@@ -17,7 +21,8 @@ const Li = styled.li`
     padding: 2px;
     position: relative;
     display: flex;
-    width: 70px;
+    width: 20vw;
+    height: 2vw;
     color: white;
     cursor: pointer;
     align-items: center;
@@ -31,14 +36,14 @@ const Li = styled.li`
     }
     
     @media(min-width: 550px) {
-        width: 20vw;
+        width: 15vw;
     }
 `;
 
 export default function HeaderShop() {
     return (
         <HeaderDiv>
-            <Logo wxh={"40px"} />
+            <Logo wxh={"10vw"} />
             <Ul>
                 <Link to={"/"}>
                     <Li>

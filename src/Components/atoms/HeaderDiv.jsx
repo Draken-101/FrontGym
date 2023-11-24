@@ -7,10 +7,10 @@ const HeaderDiv = styled.header`
     background-color: rgb(255,0,0);
     text-align: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
+    gap: 10%;
 `;
 
 export default HeaderDiv;
