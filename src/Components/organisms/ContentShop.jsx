@@ -16,13 +16,13 @@ const D = styled.div`
 export default function ContentShop() {
     return (
         <D>
-            <div style={{
+            <div className="HeadShop" style={{
                 position:"relative",
                 width: "100%",
-                height:"10%",
+                height:"10vh",
                 zIndex: "10",
                 boxShadow: "rgba(50, 50, 93, 0.25), 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset, rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
-            }} className="">
+            }}>
                 <HeaderShop/>
             </div>
             <div style={{

@@ -28,18 +28,10 @@ const D = styled.div`
 `;
 
 export default function FormLogin(){
-    const inp = [
-        {
-            name: "Usuario",
-            type: "text"
-        },
-        {
-            name: "Contraseña",
-            type: "password"
-        }]
+    const inp = ["Usuario","Contraseña"]
     return(
         <D>
-            <Form titulo={"Iniciar Secion"} nameButon={"Ingresar"} inputs={inp}/>
+            <Form titulo={"Iniciar Sesion"} nameButon={"Ingresar"} inputs={inp}/>
             
             <Link to={"/"}><LogoButon /></Link>
         </D>

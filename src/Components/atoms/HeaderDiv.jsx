@@ -10,7 +10,7 @@ const HeaderDiv = styled.header`
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10%;
+    gap: 5%;
 `;
 
 export default HeaderDiv;

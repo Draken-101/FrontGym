@@ -19,32 +19,7 @@ const D = styled.div`
 `;
 
 export default function FormRegisterU(){  
-    const inp = [
-        {
-            name: "Nombre",
-            type: "text"
-        },
-        {
-            name: "Apellido",
-            type: "text"
-        },
-        {
-            name: "Edad",
-            type: "number"
-        },
-        {
-            name: "Peso",
-            type: "number"
-        },
-        {
-            name: "Contraseña",
-            type: "password"
-        },
-        {
-            name: "Confirmar Contraseña",
-            type: "password"
-        }
-    ]
+    const inp = ["Nombre", "Apellido","Edad","Peso","Contraseña","Confirmar Contraseña"]
     return(
         <D>
             <Form titulo={"Registrar Usuario"} nameButon={"Registrar"} inputs={inp}/>

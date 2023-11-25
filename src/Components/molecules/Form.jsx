@@ -32,19 +32,68 @@ const Div = styled.div`
 export default function Form({ titulo, inputs, nameButon }) {
     const [error, setError] = useState('');
 
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [nombre, setNombre] = useState('');
+
+
+
 
     return (
         <>
-            <D action="submit">
+            <D action="submit" >
                 <Div>
                     <Text text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"} />
                 </Div>
 
-                {inputs.map((input, index) => (
-                    <Entrada text={input.name} tipo={input.type}/>
-                ))}
+                {inputs.map((input, index) => {
+                    switch (input) {
+                        case "Usuario":
+                            return (
+                                <Entrada text={input} tipo={"text"} change={(user) => {
+                                    setUser(user.target.value);
+                                }} />)
+                        case "Contraseña":
+                            return (
+                                <Entrada text={input} tipo={"password"} change={(password) => {
+
+                                }} />)
+                        case "Confirmar contraseña":
+
+                            return (
+                                <Entrada text={input} tipo={"password"} change={(password) => {
+
+                                }} />)
+                        case "Edad":
+
+                            return (
+                                <Entrada text={input} tipo={"number"} change={(edad) => {
+
+                                }} />)
+                        case "Peso":
+
+                            return (
+                                <Entrada text={input} tipo={"number"} change={(peso) => {
+
+                                }} />)
+                        case "Nombre":
+
+                            return (
+                                <Entrada text={input} tipo={"text"} change={(nombres) => {
+
+                                }} />)
+                        case "Apellido":
+
+                            return (
+                                <Entrada text={input} tipo={"text"} change={(apellidos) => {
+
+                                }} />)
+                        default:
+                    }
+                })}
                 <Div>
-                    <Boton clasName=" top-10" text={nameButon} wi={150} color={"black"} bgColor={"white"} />
+                    <Boton tipo={"submit"} clasName=" top-10" text={nameButon} wi={150} color={"black"} bgColor={"white"} />
                 </Div>
             </D>
         </>

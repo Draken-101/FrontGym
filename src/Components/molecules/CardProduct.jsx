@@ -9,9 +9,8 @@ const D = styled.div`
     text-align: center;
     border: none;
     align-items: center;
-    width: 20vw;
+    width: 44%;
     height: fit-content;
-    padding: 2vw;
     gap: .5vh;
     flex-direction: column;
     justify-content:center;

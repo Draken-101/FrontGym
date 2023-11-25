@@ -11,7 +11,7 @@ const Img = styled.button`
     overflow:hidden;
     background-color: rgba(255, 0, 0, 0.427);
     width: 100%;
-    gap: ;
+    padding: 5%;
     border: none;
     border-radius:5px;
     transition:.5s;

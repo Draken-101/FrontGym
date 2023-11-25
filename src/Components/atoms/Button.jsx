@@ -34,10 +34,10 @@ const B = styled.button`
     }
 `;
 
-export default function Boton({wi, he, onCl, text, bgColor, bgColorHover, color}){
+export default function Boton({wi, he, onCl, text, bgColor, bgColorHover, color, tipo}){
     return(
         <>
-            <B onClick={onCl} C={color} Hov={bgColorHover} bgC={bgColor} W={wi} H={he} className='shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]'>
+            <B type={tipo ? tipo : ""} onClick={onCl} C={color} Hov={bgColorHover} bgC={bgColor} W={wi} H={he} className='shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]'>
             <span>{text ? text : "Ingresa Texto"}</span>
             </B>
         </>

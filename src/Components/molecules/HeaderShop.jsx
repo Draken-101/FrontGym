@@ -43,7 +43,7 @@ const Li = styled.li`
 export default function HeaderShop() {
     return (
         <HeaderDiv>
-            <Logo wxh={"10vw"} />
+            <Logo wxh={"8vh"} />
             <Ul>
                 <Link to={"/"}>
                     <Li>

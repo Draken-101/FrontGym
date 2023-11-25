@@ -43,8 +43,8 @@ const E = styled.input`
     }
 `;
 
-export default function Entrada({ text, bgColor , color, wi, he, tipo}) {
+export default function Entrada({ text, bgColor , color, wi, he, tipo, change}) {
     return (
-        <E className=" focus:outline-none ring-0 appearance-none outline-none" W={wi} H={he} C={color} bgC={bgColor} type={tipo} placeholder={text ? text : "Ingresa placeHolder"}></E>
+        <E onChange={change} className=" focus:outline-none ring-0 appearance-none outline-none" W={wi} H={he} C={color} bgC={bgColor} type={tipo} placeholder={text ? text : "Ingresa placeHolder"}></E>
     );
 }
