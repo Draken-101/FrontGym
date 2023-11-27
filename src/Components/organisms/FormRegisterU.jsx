@@ -4,6 +4,7 @@ import LogoButon from "../molecules/LogoButtton";
 import styled from "styled-components";
 import RequestsContext from "../../context/RequestContext";
 import axios from 'axios'
+import { AuthContext } from "../../context/AuthContext";
 
 const D = styled.div`
     position: relative;
@@ -23,6 +24,10 @@ const D = styled.div`
 
 export default function FormRegisterU() {
     const info = useContext(RequestsContext);
+
+    const { contextValue, setContextValue } = useContext(AuthContext)
+    console.log(contextValue)
+
     const [bodyData, setBodyData] = useState({
         image: null,
         name: "",
@@ -61,6 +66,7 @@ export default function FormRegisterU() {
         form_to_send.append("email", bodyData.email)
         axios.post(info.server_uri + "/user/register", form_to_send).then((res) => {
             alert("Usuario creado con éxito.")
+            setContextValue(res.data.content.token)
         }).catch((e) => {
             console.error(e)
             alert(e.response.data.message)
