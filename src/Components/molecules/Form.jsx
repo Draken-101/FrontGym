@@ -10,7 +10,7 @@ const D = styled.form`
     display: flex;
     text-align: center;
     align-items: center;
-    width: 50%;
+    width:50%;
     height: fit-content;
     gap: 5px;
     padding: 10px;
@@ -19,7 +19,7 @@ const D = styled.form`
     @media(max-width : 620px) {
         flex-direction: row;
         flex-wrap: wrap;
-        width: 100%;
+        width: ${props => props.w ? props.w : "100%"};
     }
 `;
 
@@ -29,73 +29,273 @@ const Div = styled.div`
     justify-content:center;
 `;
 
-export default function Form({ titulo, inputs, nameButon }) {
-    const [error, setError] = useState('');
+const T = styled.span`
+    width:65%;
+    position: relative;
+    display: ${props => props.D ? "block" : "none"};
+    color: ${props => props.C ? props.C : "#410000"};
+    font-size: 1.5vw;
+    padding:.25vh;
+    background-color: #ff0000d1;
+    border-left: 5px solid rgb(255, 130, 130);
+    border-right: 5px solid rgb(255, 130, 130);
+`;
 
-    const [user, setUser] = useState('');
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [nombre, setNombre] = useState('');
+const V = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`;
 
+export default function Form({ titulo, inputs, nameButon, c, wi }) {
 
-
+    const [validarUser, setValidarUser] = useState('');
+    const [validarPassword1, setValidarPassword1] = useState('');
+    const [validarPassword2, setValidarPassword2] = useState('');
+    const [validarEdad, setValidarEdad] = useState(0);
+    const [validarPeso, setValidarPeso] = useState(0);
+    const [validarEmail, setValidarEmail] = useState('');
+    const [validarNombre, setValidarNombre] = useState('');
+    const [validarApellidos, setValidarApellidos] = useState('');
+    const [validarPrecio, setValidarPrecio] = useState(0);
+    const [validarDescripcion, setValidarDescripcion] = useState('');
 
     return (
-        <>
-            <D action="submit" >
-                <Div>
-                    <Text text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"} />
-                </Div>
+        <D action="submit" w={wi}>
+            <Div>
+                <Text color={c} text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"} />
+            </Div>
 
-                {inputs.map((input, index) => {
-                    switch (input) {
-                        case "Usuario":
-                            return (
-                                <Entrada text={input} tipo={"text"} change={(user) => {
-                                    setUser(user.target.value);
-                                }} />)
-                        case "Contraseña":
-                            return (
-                                <Entrada text={input} tipo={"password"} change={(password) => {
+            {inputs.map((input, index) => {
+                switch (input) {
+                    case "Usuario":
+                        const [errorValidarUser, setErrorValidarUser] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarUser}>{errorValidarUser}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"text"}
+                                    change={(user) => {
+                                        const v = /^[a-zA-Z]+$/;
 
-                                }} />)
-                        case "Confirmar contraseña":
+                                        if (v.test(user.target.value) || user.target.value === "") {
+                                            setErrorValidarUser("");
+                                            setValidarUser(user.target.value);
+                                        } else {
+                                            setErrorValidarUser("block");
+                                            setValidarUser("");
+                                        }
+                                    }} />
+                            </V>)
+                    case "Contraseña":
+                        const [errorValidarPassword1, setErrorValidarPassword1] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarPassword1}>{errorValidarPassword1}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"password"}
+                                    change={(password) => {
+                                        const v = /^.{1,8}$/;
 
-                            return (
-                                <Entrada text={input} tipo={"password"} change={(password) => {
+                                        if (v.test(password.target.value) || password.target.value === "") {
+                                            setErrorValidarPassword1("");
+                                            setValidarPassword1(password.target.value);
+                                        } else {
+                                            setErrorValidarPassword1("La contraseña solo puede tener min 8 caracteres");
+                                            setValidarPassword1("");
+                                        }
+                                    }} />
+                            </V>)
+                    case "Confirmar contraseña":
+                        const [errorValidarPassword2, setErrorValidarPassword2] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarPassword2}>{errorValidarPassword2}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"password"}
+                                    change={(password) => {
+                                        setValidarPassword2(password.target.value);
+                                    }}
+                                    blur={() => {
+                                        if (validarPassword1 === validarPassword2) {
+                                            console.log("a" + errorValidarPassword2);
+                                            setErrorValidarPassword2("");
+                                        } else {
+                                            console.log(validarPassword1 + " s" + validarPassword2);
+                                            setErrorValidarPassword2("Ingrese la misma contraseña");
+                                        }
+                                    }}
+                                />
+                            </V>)
+                    case "Edad":
+                        const [errorValidarEdad, setErrorValidarEdad] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarEdad}>{errorValidarEdad}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"number"}
+                                    change={(edad) => {
+                                        const v = /^[1-9]\d*$/;
 
-                                }} />)
-                        case "Edad":
+                                        if (v.test(edad.target.value) && edad.target.value >= 12 && edad.target.value <= 100 || edad.target.value === "") {
+                                            setErrorValidarEdad("");
+                                            setValidarEdad(edad.target.value);
+                                        } else {
+                                            setErrorValidarEdad("Edad no admitida");
+                                            setValidarEdad(0);
+                                        }
+                                    }} />
+                            </V>)
+                    case "Peso":
+                        const [errorValidarPeso, setErrorValidarPeso] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarPeso}>{errorValidarPeso}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"number"}
+                                    change={(peso) => {
+                                        const v = /^[1-9]\d*$/;
 
-                            return (
-                                <Entrada text={input} tipo={"number"} change={(edad) => {
+                                        if (v.test(peso.target.value) && peso.target.value >= 50 && peso.target.value <= 150 || peso.target.value === "") {
+                                            setErrorValidarPeso("");
+                                            setValidarPeso(peso.target.value);
+                                        } else {
+                                            setErrorValidarPeso("Peso no admitido");
+                                            setValidarPeso(0);
+                                        }
+                                    }} />
+                            </V>)
+                    case "Nombre":
+                        const [errorValidarNombre, setErrorValidarNombre] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarNombre}>{errorValidarNombre}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"text"}
+                                    change={(nombre) => {
+                                        const v = /^[a-zA-Z]+$/;
 
-                                }} />)
-                        case "Peso":
+                                        if (v.test(nombre.target.value) || nombre.target.value === "") {
+                                            setErrorValidarNombre("");
+                                            setValidarNombre(nombre.target.value);
+                                        } else {
+                                            setErrorValidarNombre("No se permiten numeros");
+                                            setValidarNombre("");
+                                        }
+                                    }} />
+                            </V>)
+                    case "Apellido":
+                        const [errorValidarApellidos, setErrorValidarApellidos] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarApellidos}>{errorValidarApellidos}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"text"}
+                                    change={(apellidos) => {
+                                        const v = /^[a-zA-Z]+$/;
 
-                            return (
-                                <Entrada text={input} tipo={"number"} change={(peso) => {
+                                        if (v.test(apellidos.target.value) || apellidos.target.value === "") {
+                                            setErrorValidarApellidos("");
+                                            setValidarApellidos(apellidos.target.value);
+                                        } else {
+                                            setErrorValidarApellidos("No se permiten numeros");
+                                            setValidarApellidos("");
+                                        }
+                                    }} />
+                            </V>)
+                    case "Precio":
+                        const [errorValidarPrecio, setErrorValidarPrecio] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarPrecio}>{errorValidarPrecio}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"number"}
+                                    change={(precio) => {
+                                        const v = /^[1-9]\d*$/;
 
-                                }} />)
-                        case "Nombre":
+                                        if (v.test(precio.target.value) && precio.target.value >= 1 || precio.target.value === "") {
+                                            setErrorValidarPrecio("");
+                                            setValidarPeso(peso.target.value);
+                                        } else {
+                                            setErrorValidarPrecio("Precio no admitido");
+                                            setValidarPeso(0);
+                                        }
+                                    }} />
+                            </V>)
+                    case "Cantidad":
+                        const [errorValidarCantidad, setErrorValidarCantidad] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarCantidad}>{errorValidarCantidad}</T>
+                                <Entrada
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"number"}
+                                    change={(cantidad) => {
+                                        const v = /^[1-9]\d*$/;
 
-                            return (
-                                <Entrada text={input} tipo={"text"} change={(nombres) => {
+                                        if (v.test(cantidad.target.value) && cantidad.target.value >= 1 || cantidad.target.value === "") {
+                                            setErrorValidarPrecio("");
+                                            setValidarPeso(cantidad.target.value);
+                                        } else {
+                                            setErrorValidarPrecio("Cantidad no admitida");
+                                            setValidarPeso(0);
+                                        }
+                                    }} />
+                            </V>)
+                    case "Descripcion":
+                        const [errorValidarDescripcion, setErrorValidarDescripcion] = useState('');
+                        return (
+                            <V>
+                                <T C={c} D={errorValidarDescripcion}>{errorValidarDescripcion}</T>
+                                <Entrada
+                                    Des={"a"}
+                                    he={"200px"}
+                                    colorFont={c}
+                                    text={input}
+                                    tipo={"text"}
+                                    change={(descripcion) => {
 
-                                }} />)
-                        case "Apellido":
-
-                            return (
-                                <Entrada text={input} tipo={"text"} change={(apellidos) => {
-
-                                }} />)
-                        default:
-                    }
-                })}
-                <Div>
-                    <Boton tipo={"submit"} clasName=" top-10" text={nameButon} wi={150} color={"black"} bgColor={"white"} />
-                </Div>
-            </D>
-        </>
+                                        if (descripcion.target.value.length >= 20 || descripcion.target.value.length <= 255) {
+                                            setErrorValidarDescripcion("");
+                                            setValidarDescripcion(descripcion.target.value);
+                                        } else {
+                                            if (descripcion.target.value.length < 20) {
+                                                setErrorValidarDescripcion("Debe almenos haber 20 caracteres");
+                                                setValidarDescripcion("");
+                                            } else if (descripcion.target.value.length > 255) {
+                                                setErrorValidarDescripcion("Debe haber menos de 256 caracteres");
+                                                setValidarDescripcion("");
+                                            } else {
+                                                setErrorValidarDescripcion("No se permiten numeros");
+                                                setValidarDescripcion("");
+                                            }
+                                        }
+                                    }} />
+                            </V>)
+                    default:
+                }
+            })}
+            <Div>
+                <Boton tipo={"submit"} clasName=" top-10" text={nameButon} wi={150} color={"black"} bgColor={"white"} />
+            </Div>
+        </D>
     );
 }

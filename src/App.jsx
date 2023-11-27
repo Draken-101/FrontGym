@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       {
-        act ? <Administration onClick={Activate} v={"none"}/> : <Administration onClick={Activate} v={"none"}/>
+        act ? <Administration onClick={Activate} v={"block"}/> : <Administration onClick={Activate} v={"none"}/>
       }
       <Routes>
       <Route path='/Admin' element={<Administration onClick={Activate}/>}/>

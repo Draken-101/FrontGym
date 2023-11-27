@@ -5,22 +5,21 @@ import '../../assets/Styles/Stars.css'
 
 const D = styled.div`
     position: relative;
-    display: flex;
     text-align: center;
+    display: flex;
     border: none;
-    align-items: center;
-    width: 44%;
+    width: 20%;
+    margin: 2.5%;
     height: fit-content;
     gap: .5vh;
-    flex-direction: column;
-    justify-content:center;
+    flex-wrap: wrap;
 `;
 
 const Price = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20%;
+    gap: 15%;
     width: 100%;
 `;
 
@@ -28,7 +27,7 @@ export default function CardProtuct() {
     return (
         <D>
             <ImgProduct  etiqueta={"Rebaja"} />
-            <Text size={"1.5vw"} color={"rgb(13, 212, 199)"} bold={"600"} text={"Nombre Empresa"} />
+            <Text size={"1.5vw"} color={"rgb(167, 0, 0)"} bold={"600"} text={"Nombre Empresa"} />
             <Text size={"2.5vw"} bold={"600"} text={"Nombre Producto"} />
             {/* <div className="valoracion">
 
@@ -53,9 +52,9 @@ export default function CardProtuct() {
                 </button>
 
             </div> */}
-            <Price className=" flex items-center justify-between">
-                <Text text={"$1500" } size={"2vw"} color={"rgb(72, 72, 72)"} tachado={true} bold={"600"}/>
-                <Text text={"$1000"} size={"2.5vw"} bold={"600"}/>
+            <Price>
+                <Text text={"$1500" } size={"1.5vw"} color={"rgb(72, 72, 72)"} tachado={true} bold={"600"}/>
+                <Text text={"$1000"} size={"2vw"} bold={"600"}/>
             </Price>
         </D>
     );

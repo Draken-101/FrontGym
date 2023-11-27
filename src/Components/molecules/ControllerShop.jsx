@@ -13,7 +13,7 @@ const D = styled.div`
 export default function ControllerShop(){
     return(
         <D>
-            <Entrada text={"Buscar"} color={"rgb(197, 197, 197)"} wi={"75%"}/>
+            <Entrada text={"Buscar"} color={"rgb(197, 197, 197)"} bColor={"white"} wi={"75%"}/>
             <List/>
         </D>
     );

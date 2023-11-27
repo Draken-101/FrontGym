@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const B = styled.button`
+    cursor: pointer;
     background-color: ${props => props.bgC ? props.bgC : "Red"};
     border-radius: 1rem .5rem 1rem .5rem;
     color: ${props => props.C ? props.C : "white"};
@@ -22,6 +23,7 @@ const B = styled.button`
         background-color: ${props => props.Hov ? props.Hov : "rgb(200,0,0)"};
         border-radius: .5rem 1rem .5rem 1rem;
         border: 1px solid black;
+        color: ${props => props.bgC ? props.bgC : "Red"};
     }
     @media(max-width : 620px){
         width: ${props => props.W ? props.W/2+"px" : "75px"};
@@ -29,7 +31,8 @@ const B = styled.button`
         font-size: 10px;
     }
     span{
-        
+        width: 100%;
+        height: 100%;
         filter: drop-shadow(5px 5px 5px rgba(0,0,0,1));
     }
 `;

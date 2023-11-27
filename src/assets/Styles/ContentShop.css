@@ -4,12 +4,10 @@
     overflow-y:scroll;
     display: flex;
     flex-wrap: wrap;
-    width: 69%;
-    align-items: center;
-    gap: 5%;
-    justify-content: center;
+    width: 69.7%;
     margin: 0%;
-    height:90%;
+    height:fit-content;
+    max-height: 90%;
 }
 .ContainerProducts::-webkit-scrollbar{
     width: 0px;

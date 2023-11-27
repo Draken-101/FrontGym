@@ -44,6 +44,21 @@ export default function ContentShop() {
                 <CardProtuct />
                 <CardProtuct />
                 <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
+                <CardProtuct />
             </div>
 
         </D>

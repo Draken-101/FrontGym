@@ -19,9 +19,10 @@ const D = styled.div`
 `;
 
 const Button = styled.button`
+    cursor: pointer;
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     font-size: 1.5vw;
     width: 100%;
@@ -53,21 +54,21 @@ export default function ControllAdmin({oC, V}) {
             <D>
                 <CardPerfil />
 
-                <Link to={"/Users"} className=" w-4/5">
+                <Link to={"/Users"} className=" w">
                     <Button><GiBiceps />Miembros</Button>
                 </Link>
 
-                <Link to={"/Employees"} className=" w-4/5">
+                <Link to={"/Employees"} className=" w">
                     <Button><GiMuscularTorso />Empleados</Button>
                 </Link>
 
-                <Link to={"/Products"} className=" w-4/5">
+                <Link to={"/Products"} className=" w">
                     <Button><BiCube />Productos</Button>
                 </Link>
-                <Link to={"/PayMembership"} className=" w-4/5">
+                <Link to={"/PayMembership"} className=" w">
                     <Button><LiaCcDinersClub />Pagar Membrecia</Button>
                 </Link>
-                <Link to={"/"} className=" w-4/5">
+                <Link to={"/"} className=" w">
                     <Button onClick={oC}><CiLogout /> Salir</Button>
                 </Link>
             </D>

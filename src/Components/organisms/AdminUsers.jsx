@@ -6,15 +6,12 @@ import HeadAdmin from "../molecules/HeadAdmin";
 const D = styled.div`
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
-    width: 72vw;
-    padding: 5%;
+    width: 65vw;
+    margin: 2vh 4vw 2vh 0;
+    padding: 0 5% 0 5%;
     border-radius: 0 15px 15px 0;
     left: 24vw;
-    margin: 2vh;
     height: 96vh;
     background-color: white;
 `;
@@ -57,11 +54,8 @@ const Td = styled.td`
 export default function AdminUsers(){
     return(
         <D>
-            <HeadAdmin/>
+            <HeadAdmin nombre={"Miembros"}/>
             <Table>
-                <Tr>
-                    <Th><Text text={"Miembros de Gym"} size={"25px"} color={"white"}/></Th>
-                </Tr>
                 <Tr>
                     <Th>Nombre</Th>
                     <Th>ID</Th>
