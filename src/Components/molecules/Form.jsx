@@ -48,7 +48,7 @@ const V = styled.div`
     flex-direction: column;
 `;
 
-export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
+export default function Form({ titulo, inputs, nameButon, c, wi, bC, onChange, onSubmit, }) {
 
     const [validarUser, setValidarUser] = useState('');
     const [validarPassword1, setValidarPassword1] = useState('');
@@ -64,7 +64,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
     const [validarDescripcion, setValidarDescripcion] = useState('');
 
     return (
-        <D action="submit" w={wi}>
+        <D w={wi} onSubmit={onSubmit}>
             <Div>
                 <Text color={c} text={titulo ? titulo : "Ingresa Titulo"} size={"5vw"} bold={"600"} />
             </Div>
@@ -77,10 +77,11 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarUser}>{errorValidarUser}</T>
                                 <Entrada
+                                    id={"email"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
-                                    tipo={"text"}
+                                    tipo={"email"}
                                     change={(user) => {
                                         const v = /^[a-zA-Z]+$/;
 
@@ -91,6 +92,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                             setErrorValidarUser("block");
                                             setValidarUser("");
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Contraseña":
@@ -99,6 +101,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarPassword1}>{errorValidarPassword1}</T>
                                 <Entrada
+                                    id={"password"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
@@ -113,6 +116,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                             setErrorValidarPassword1("La contraseña solo puede tener min 8 caracteres");
                                             setValidarPassword1("");
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Confirmar contraseña":
@@ -121,12 +125,14 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarPassword2}>{errorValidarPassword2}</T>
                                 <Entrada
+                                    id={"repassword"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
                                     tipo={"password"}
                                     change={(password) => {
                                         setValidarPassword2(password.target.value);
+                                        onChange()
                                     }}
                                     blur={() => {
                                         if (validarPassword1 === validarPassword2) {
@@ -145,6 +151,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarEdad}>{errorValidarEdad}</T>
                                 <Entrada
+                                    id={"age"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
@@ -159,6 +166,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                             setErrorValidarEdad("Edad no admitida");
                                             setValidarEdad(0);
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Peso":
@@ -167,6 +175,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarPeso}>{errorValidarPeso}</T>
                                 <Entrada
+                                    id={"weight"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
@@ -174,13 +183,14 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                     change={(peso) => {
                                         const v = /^[1-9]\d*$/;
 
-                                        if (v.test(peso.target.value) && peso.target.value >= 50 && peso.target.value <= 150 || peso.target.value === "") {
-                                            setErrorValidarPeso("");
-                                            setValidarPeso(peso.target.value);
-                                        } else {
-                                            setErrorValidarPeso("Peso no admitido");
-                                            setValidarPeso(0);
-                                        }
+                                        // if (v.test(peso.target.value) && peso.target.value >= 50 && peso.target.value <= 150 || peso.target.value === "") {
+                                        //     setErrorValidarPeso("");
+                                        //     setValidarPeso(peso.target.value);
+                                        // } else {
+                                        //     setErrorValidarPeso("Peso no admitido");
+                                        //     setValidarPeso(0);
+                                        // }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Nombre":
@@ -189,6 +199,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarNombre}>{errorValidarNombre}</T>
                                 <Entrada
+                                    id={"name"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
@@ -203,6 +214,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                             setErrorValidarNombre("No se permiten numeros");
                                             setValidarNombre("");
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Apellido":
@@ -211,6 +223,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarApellidos}>{errorValidarApellidos}</T>
                                 <Entrada
+                                    id={"lastname"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
@@ -225,6 +238,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                             setErrorValidarApellidos("No se permiten numeros");
                                             setValidarApellidos("");
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Precio":
@@ -233,6 +247,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarPrecio}>{errorValidarPrecio}</T>
                                 <Entrada
+                                    id="price"
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
@@ -247,6 +262,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                             setErrorValidarPrecio("Precio no admitido");
                                             setValidarPrecio(0);
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Cantidad":
@@ -255,6 +271,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarCantidad}>{errorValidarCantidad}</T>
                                 <Entrada
+                                    id={"amount"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
@@ -269,6 +286,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                             setErrorValidarCantidad("Cantidad no admitida");
                                             setValidarCantidad(0);
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Tiempo":
@@ -277,6 +295,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarTiempo}>{errorValidarTiempo}</T>
                                 <Entrada
+                                    id={"time"}
                                     bColor={bC}
                                     colorFont={c}
                                     text={input}
@@ -291,6 +310,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                             setErrorValidarTiempo("Tiempo no admitida");
                                             setValidarTiempo(0);
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     case "Descripcion":
@@ -299,6 +319,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                             <V>
                                 <T C={c} D={errorValidarDescripcion}>{errorValidarDescripcion}</T>
                                 <Entrada
+                                    id={"description"}
                                     bColor={bC}
                                     Des={"a"}
                                     he={"200px"}
@@ -322,6 +343,7 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC }) {
                                                 setValidarDescripcion("");
                                             }
                                         }
+                                        onChange()
                                     }} />
                             </V>)
                     default:

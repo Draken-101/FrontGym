@@ -172,64 +172,65 @@ const Select = styled.select`
     }
 `;
 
-export default function Entrada({ text, bgColor, color, wi, he, tipo, change, blur, bColor, colorFont, Des }) {
+export default function Entrada({ text, bgColor, color, wi, he, tipo, change, blur, bColor, colorFont, Des, id }) {
     return (
         <>
             {
-                text ==="Tiempo" ? 
-                
-                <Select
-                    D={Des}
-                    CF={colorFont}
-                    B={bColor}
-                    onBlur={blur}
-                    onChange={change}
-                    W={wi}
-                    H={he}
-                    C={color}
-                    bgC={bgColor}
-                    type={tipo}
-                >
-                    <option value={""}>{text}</option>
-                    <option value={"Dia"}>Dia</option>
-                    <option value={"Mes"}>Mes</option>
-                    <option value={"Año"}>Año</option>
-                </Select>
+                text === "Tiempo" ?
 
-                : 
+                    <Select
+                        D={Des}
+                        CF={colorFont}
+                        B={bColor}
+                        onBlur={blur}
+                        onChange={change}
+                        W={wi}
+                        H={he}
+                        C={color}
+                        bgC={bgColor}
+                        type={tipo}
+                    >
+                        <option value={""}>{text}</option>
+                        <option value={"Dia"}>Dia</option>
+                        <option value={"Mes"}>Mes</option>
+                        <option value={"Año"}>Año</option>
+                    </Select>
 
-                Des ? 
-                    <TexTarea 
-                    D={Des}
-                    CF={colorFont}
-                    B={bColor}
-                    onBlur={blur}
-                    onChange={change}
-                    W={wi}
-                    H={he}
-                    C={color}
-                    bgC={bgColor}
-                    type={tipo}
-                    rows={10}
-                    cols={50}
-                    placeholder={text ? text : "Ingresa placeHolder"}
-                    />
-                : 
-                <E
-                D={Des}
-                CF={colorFont}
-                B={bColor}
-                onBlur={blur}
-                onChange={change}
-                W={wi}
-                H={he}
-                C={color}
-                bgC={bgColor}
-                type={tipo}
-                placeholder={text ? text : "Ingresa placeHolder"}
-            ></E>
+                    :
+
+                    Des ?
+                        <TexTarea
+                            D={Des}
+                            CF={colorFont}
+                            B={bColor}
+                            onBlur={blur}
+                            onChange={change}
+                            W={wi}
+                            H={he}
+                            C={color}
+                            bgC={bgColor}
+                            type={tipo}
+                            rows={10}
+                            cols={50}
+                            placeholder={text ? text : "Ingresa placeHolder"}
+                        />
+                        :
+                        <E
+                            D={Des}
+                            CF={colorFont}
+                            B={bColor}
+                            onBlur={blur}
+                            onChange={change}
+                            W={wi}
+                            H={he}
+                            C={color}
+                            bgC={bgColor}
+                            type={tipo}
+                            placeholder={text ? text : "Ingresa placeHolder"}
+                            id={id}
+                        ></E>
             }
-            
+
         </>
     );
 }

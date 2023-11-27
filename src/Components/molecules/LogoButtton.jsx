@@ -122,9 +122,9 @@ const EInput = styled.input`
     top: -26%;
     height: 126%;
     width: 100%;
-`;  
+`;
 
-export default function LogoButon({ oC, subirImg, }) {
+export default function LogoButon({ oC, subirImg, onChangeImage}) {
     const [t, setT] = useState([]);
     const [imagen, setImagen] = useState('');
 
@@ -136,10 +136,6 @@ export default function LogoButon({ oC, subirImg, }) {
         }
     }, [subirImg]);
 
-    const i = (im) => {
-        setImagen(URL.createObjectURL(im.target.files[0]));
-    };
-
     return (
         <>
             {
@@ -147,7 +143,7 @@ export default function LogoButon({ oC, subirImg, }) {
                     <Dimg D={subirImg ? "15%" : "0%"}>
                         <Logo newImg={imagen} wxh={imagen ? "100%" : "80%"} z={"1"} position={"absolute"} filterHover={"drop-shadow(5px 5px 5px rgba(0,0,0,1))"} />
                         <T >{t}</T>
-                        <EInput accept="image/" type="file" multiple onChange={i}/>
+                        <EInput accept="image/*" type="file" multiple onChange={onChangeImage} capture="camera" />
                     </Dimg>
                     :
                     <D onClick={oC}>

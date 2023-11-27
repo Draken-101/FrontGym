@@ -1,7 +1,6 @@
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/RegisterUsers'
-import userContext from './context/userContext'
 import Shop from './pages/Shop';
 import CarShop from './pages/CarShop';
 import './index.css'
@@ -13,32 +12,36 @@ import Products from './pages/Products';
 import Employees from './pages/Employees';
 import { useState } from 'react';
 import ProductPage from './pages/ProductPage';
+import RequestsContext from './context/RequestContext';
+import setting from './app.setting';
 
 function App() {
   const [act, setAct] = useState(true);
 
   const Activate = () => {
-      setAct(false);
+    setAct(false);
   }
 
   return (
     <>
-      {
-        act ? <Administration onClick={Activate} v={"block"}/> : <Administration onClick={Activate} v={"none"}/>
-      }
-      <Routes>
-      <Route path='/Admin' element={<Administration onClick={Activate}/>}/>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/PayMembership' element={<PayMembership/>}/>
-        <Route path='/Products' element={<Products/>}/>
-        <Route path='/Employees' element={<Employees/>}/>
-        <Route path='/Users' element={<Users/>}/>
-        <Route path='/Shop' element={<Shop/>}/>
-        <Route path='/CarShop' element={<CarShop/>}/>
-        <Route path='/Register' element={<Register/>}/>
-        <Route path='/Login' element={<Login/>}/>
-        <Route path='/Product' element={<ProductPage/>}/>
-      </Routes>
+      {/* {
+        act ? <Administration onClick={Activate} v={"block"} /> : <Administration onClick={Activate} v={"none"} />
+      } */}
+      <RequestsContext.Provider value={setting}>
+        <Routes>
+          <Route path='/Admin' element={<Administration onClick={Activate} />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/PayMembership' element={<PayMembership />} />
+          <Route path='/Products' element={<Products />} />
+          <Route path='/Employees' element={<Employees />} />
+          <Route path='/Users' element={<Users />} />
+          <Route path='/Shop' element={<Shop />} />
+          <Route path='/CarShop' element={<CarShop />} />
+          <Route path='/Register' element={<Register />} />
+          <Route path='/Login' element={<Login />} />
+          <Route path='/Product' element={<ProductPage />} />
+        </Routes>
+      </RequestsContext.Provider>
     </>
   )
 }
