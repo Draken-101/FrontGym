@@ -80,8 +80,8 @@ const TexTarea = styled.textarea`
     font-size: 20px;
 
     &::placeholder{
-    overflow: ${props => props.D ? "" : "hidden"};
-    text-overflow: ${props => props.D ? "" : "hidden"};
+        overflow: ${props => props.D ? "" : "hidden"};
+        text-overflow: ${props => props.D ? "" : "hidden"};
         color: ${props => props.C ? props.C : "rgb(110,110,110)"};
         font-size: 20px;
         font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
@@ -112,10 +112,10 @@ const TexTarea = styled.textarea`
     }
 
     &::-webkit-outer-spin-button,&::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
 `;
 
 export default function Entrada({ text, bgColor, color, wi, he, tipo, change, blur, bColor, colorFont, Des }) {
