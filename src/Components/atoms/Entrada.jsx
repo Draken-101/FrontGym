@@ -213,6 +213,7 @@ export default function Entrada({ text, bgColor, color, wi, he, tipo, change, bl
                             rows={10}
                             cols={50}
                             placeholder={text ? text : "Ingresa placeHolder"}
+                            id={id}
                         />
                         :
                         <E

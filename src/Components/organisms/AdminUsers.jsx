@@ -61,7 +61,7 @@ export default function AdminUsers() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        axios.get(info.server_uri + "/user/", { headers: { Authorization: `Bearer ${contextValue}` } }).then((res) => {
+        axios.get(info.server_uri + "/user/client", { headers: { Authorization: `Bearer ${contextValue}` } }).then((res) => {
             // alert("Sesión iniciada con éxito.")
             console.log(res.data.content)
             setUsers(res.data.content)

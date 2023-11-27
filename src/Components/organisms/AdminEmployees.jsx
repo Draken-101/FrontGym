@@ -2,9 +2,12 @@ import styled from "styled-components";
 import HeadAdmin from "../molecules/HeadAdmin";
 import Entrada from "../atoms/Entrada";
 import Text from "../atoms/Text";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddEmployees from "../molecules/AddEmployees";
 import EditEmployees from "../molecules/EditEmployees";
+import RequestsContext from "../../context/RequestContext";
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 const D = styled.div`
     position: relative;
@@ -163,49 +166,63 @@ export default function AdminEmployees() {
     const [mostrarAdd, setMostrarAdd] = useState('none');
     const [turnAdd, setTurnAdd] = useState(true);
 
-    
+    const info = useContext(RequestsContext)
+    const { contextValue, setContextValue } = useContext(AuthContext)
+    const [users, setUsers] = useState([])
+
     const [mostrarEdit, setMostrarEdit] = useState('none');
     const [turnEdit, setTurnEdit] = useState(true);
 
-    const mAdd = ()=>{
-        if(turnAdd){
+    const mAdd = () => {
+        if (turnAdd) {
             setTurnAdd(false);
             setMostrarAdd('block');
         } else {
             setTurnAdd(true);
             setMostrarAdd('none');
-        } 
+        }
     }
 
-    const mEdit = ()=>{
-        if(turnEdit){
+    const mEdit = () => {
+        if (turnEdit) {
             setTurnEdit(false);
             setMostrarEdit('block');
         } else {
             setTurnEdit(true);
             setMostrarEdit('none');
-        } 
+        }
     }
 
-    return ( 
+    useEffect(() => {
+        axios.get(info.server_uri + "/user/admin", { headers: { Authorization: `Bearer ${contextValue}` } }).then((res) => {
+            // alert("Sesión iniciada con éxito.")
+            console.log(res.data.content)
+            setUsers(res.data.content)
+        }).catch((e) => {
+            console.error(e)
+            alert(e.response.data.message)
+        })
+    }, [])
+
+    return (
         <D>
-            <AddEmployees d={mostrarAdd} oc={mAdd}/>
-            <EditEmployees d={mostrarEdit} oc={mEdit}/>
-            <HeadAdmin nombre={"Empleados"}/>
+            <AddEmployees d={mostrarAdd} oc={mAdd} />
+            <EditEmployees d={mostrarEdit} oc={mEdit} />
+            <HeadAdmin nombre={"Empleados"} />
             <Table>
                 <Tr style={{
                     height: "8%",
                     alignItems: "center"
                 }}>
                     <Th style={{
-                        width:"100%",
+                        width: "100%",
                         alignItems: "center",
                         justifyContent: "center"
                     }}>
                         <B style={{
-                            width:"50%"
+                            width: "50%"
                         }}
-                        onClick={mAdd}
+                            onClick={mAdd}
                         >Agregar empleado</B>
                     </Th>
                 </Tr>
@@ -223,7 +240,8 @@ export default function AdminEmployees() {
 
                     </Th>
                 </Tr>
-                <Tr>
+
+                {/* <Tr>
                     <Td>
                         Leonardo Favio Najera Morales
                     </Td>
@@ -235,7 +253,23 @@ export default function AdminEmployees() {
                     <Td>
                         <B onClick={mEdit}>Editar</B>
                     </Td>
-                </Tr>
+                </Tr> */}
+                {
+                    users.map((user, i) => {
+                        return (
+                            <Tr key={i}>
+                                <Td>{user.name} {user.lastname}</Td>
+                                <Td style={{
+                                    justifyContent: "center"
+                                }}>{user.id}</Td>
+                                <Td>
+                                    <B onClick={mEdit}>Editar</B>
+                                </Td>
+                            </Tr>
+                        )
+                    })
+                }
+
             </Table>
 
         </D>

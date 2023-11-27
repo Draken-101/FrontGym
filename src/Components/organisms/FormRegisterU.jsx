@@ -24,9 +24,7 @@ const D = styled.div`
 
 export default function FormRegisterU() {
     const info = useContext(RequestsContext);
-
     const { contextValue, setContextValue } = useContext(AuthContext)
-    console.log(contextValue)
 
     const [bodyData, setBodyData] = useState({
         image: null,
@@ -36,6 +34,7 @@ export default function FormRegisterU() {
         weight: "",
         password: "",
         repassword: "",
+        role: 'client',
     });
     const handleImageChange = (e) => {
         const file = e.target.files[0];
