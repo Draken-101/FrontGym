@@ -55,7 +55,6 @@ export default function FormRegisterU() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(bodyData);
         const form_to_send = new FormData()
         form_to_send.append("name", bodyData.name)
         form_to_send.append("age", bodyData.age)

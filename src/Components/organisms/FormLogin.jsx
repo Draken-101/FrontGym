@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import Form from "../molecules/Form";
 import LogoButon from "../molecules/LogoButtton";
 import styled from "styled-components";
+import { useContext, useState } from "react";
+import axios from "axios";
+import RequestsContext from "../../context/RequestContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const D = styled.div`
     position: relative;
@@ -27,14 +31,36 @@ const D = styled.div`
     }
 `;
 
-export default function FormLogin(){
-    const inp = ["Usuario","Contraseña"]
-    return(
+export default function FormLogin() {
+    const inp = ["Usuario", "Contraseña"]
+    const info = useContext(RequestsContext)
+    const { contextValue, setContextValue } = useContext(AuthContext)
+    const [bodyData, setBodyData] = useState({
+        email: null,
+        password: null
+    });
+    const handleInputChange = () => {
+        const { id, value } = event.target;
+        setBodyData((prevData) => ({
+            ...prevData,
+            [id]: value,
+        }));
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post(info.server_uri + "/user/login", bodyData).then((res) => {
+            alert("Usuario creado con éxito.")
+            setContextValue(res.data.content.token)
+        }).catch((e) => {
+            console.error(e)
+            alert(e.response.data.message)
+        })
+    };
+    return (
         <D>
-            <Form titulo={"Iniciar Sesion"} nameButon={"Ingresar"} inputs={inp}/>
-            
+            <Form onSubmit={handleSubmit} onChange={handleInputChange} titulo={"Iniciar Sesion"} nameButon={"Ingresar"} inputs={inp} />
             <Link to={"/"}><LogoButon /></Link>
         </D>
-        
+
     );
 }
