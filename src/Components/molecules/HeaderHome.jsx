@@ -3,6 +3,8 @@ import HeaderDiv from '../atoms/HeaderDiv'
 import Logo from '../atoms/Logo';
 import '../../assets/Styles/HeaderBtn.css'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 
 const Ul = styled.ul`
@@ -37,13 +39,17 @@ const Li = styled.li`
 `;
 
 export default function HeaderHome() {
+    const { contextValue, setContextValue } = useContext(AuthContext)
     return (
         <HeaderDiv>
             <Logo wxh={"40px"} />
             <Ul>
+                {
+                    contextValue !== "" ? <Link to={'/admin'}>Panel</Link> : <></>
+                }
                 <Link to={"/Shop"}>
                     <Li >
-                        <a>Tienda</a>
+                        Tienda
                     </Li>
                 </Link>
                 <Link to={"/Login"}>

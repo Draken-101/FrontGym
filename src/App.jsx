@@ -25,9 +25,9 @@ function App() {
 
   return (
     <>
-      {/* {
+      {
         act ? <Administration onClick={Activate} v={"block"} /> : <Administration onClick={Activate} v={"none"} />
-      } */}
+      }
       <AuthContextProvider>
         <RequestsContext.Provider value={setting}>
           <Routes>

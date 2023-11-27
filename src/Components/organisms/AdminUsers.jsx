@@ -2,6 +2,10 @@ import styled from "styled-components";
 import Logo from "../atoms/Logo";
 import Text from "../atoms/Text";
 import HeadAdmin from "../molecules/HeadAdmin";
+import { useContext, useEffect, useState } from "react";
+import RequestsContext from "../../context/RequestContext";
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 const D = styled.div`
     position: relative;
@@ -51,10 +55,40 @@ const Td = styled.td`
     color: white;
 `;
 
-export default function AdminUsers(){
-    return(
+export default function AdminUsers() {
+    const info = useContext(RequestsContext)
+    const { contextValue, setContextValue } = useContext(AuthContext)
+    const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        axios.get(info.server_uri + "/user/", { headers: { Authorization: `Bearer ${contextValue}` } }).then((res) => {
+            // alert("Sesión iniciada con éxito.")
+            console.log(res.data.content)
+            setUsers(res.data.content)
+        }).catch((e) => {
+            console.error(e)
+            alert(e.response.data.message)
+        })
+    }, [])
+
+    function formatearFecha(fechaStr) {
+        const fecha = new Date(fechaStr);
+
+        const dia = fecha.getDate();
+        const mes = fecha.getMonth() + 1;
+        const año = fecha.getFullYear();
+
+        const diaFormateado = dia < 10 ? `0${dia}` : dia;
+        const mesFormateado = mes < 10 ? `0${mes}` : mes;
+
+        const fechaFormateada = `${diaFormateado}-${mesFormateado}-${año}`;
+
+        return fechaFormateada;
+    }
+
+    return (
         <D>
-            <HeadAdmin nombre={"Miembros"}/>
+            <HeadAdmin nombre={"Miembros"} />
             <Table>
                 <Tr>
                     <Th>Nombre</Th>
@@ -62,12 +96,24 @@ export default function AdminUsers(){
                     <Th>Fecha de inscripcion</Th>
                     <Th>Fecha de expiracion</Th>
                 </Tr>
-                <Tr>
+                {/* <Tr>
                     <Td>Leonardo Favio Najera Morales</Td>
                     <Td>1</Td>
                     <Td>01/11/2023</Td>
                     <Td>01/12/2023</Td>
-                </Tr>
+                </Tr> */}
+                {
+                    users.map((user, i) => {
+                        return (
+                            <Tr key={i}>
+                                <Td>{user.name} {user.lastname}</Td>
+                                <Td>{user.id}</Td>
+                                <Td>{formatearFecha(user.createdAt)}</Td>
+                                <Td>{user.active_until === null ? "Sin datos" : formatearFecha(user.active_until)}</Td>
+                            </Tr>
+                        )
+                    })
+                }
             </Table>
         </D>
     );

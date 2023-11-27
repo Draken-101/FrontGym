@@ -49,7 +49,7 @@ export default function FormLogin() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post(info.server_uri + "/user/login", bodyData).then((res) => {
-            alert("Usuario creado con éxito.")
+            alert("Sesión iniciada con éxito.")
             setContextValue(res.data.content.token)
         }).catch((e) => {
             console.error(e)
