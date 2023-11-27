@@ -12,6 +12,7 @@ const Img = styled.button`
     overflow:hidden;
     background-color: rgba(255, 0, 0, 0.427);
     width: 100%;
+    aspect-ratio: 1/1;
     padding: 5%;
     border: none;
     border-radius:5px;
@@ -56,7 +57,7 @@ const Label = styled.div`
     transform:rotate(-45deg);
 `;
 
-export default function ImgProduct({etiqueta}){
+export default function ImgProduct({etiqueta, src}){
     const [label, setLabel] = useState(false);
     useEffect(() => {
         if (etiqueta === "Rebaja") {
@@ -74,7 +75,7 @@ export default function ImgProduct({etiqueta}){
                             <Text size={"10px"} text={etiqueta} color={"rgb(252, 252, 252)"}/>
                         </Label>
             }
-            <img src={Logo} style={{
+            <img src={src} style={{
                 position:"relative",
                 width:"100%",
                 height:"100%"

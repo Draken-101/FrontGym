@@ -194,8 +194,7 @@ export default function AdminEmployees() {
     }
 
     useEffect(() => {
-        axios.get(info.server_uri + "/user/admin", { headers: { Authorization: `Bearer ${contextValue}` } }).then((res) => {
-            // alert("Sesión iniciada con éxito.")
+        axios.get(info.server_uri + "/user/admin", { headers: { Authorization: `Bearer ${contextValue.token}` } }).then((res) => {
             console.log(res.data.content)
             setUsers(res.data.content)
         }).catch((e) => {

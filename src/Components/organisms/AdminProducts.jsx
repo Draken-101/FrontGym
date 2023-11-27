@@ -2,10 +2,13 @@ import styled from "styled-components";
 import HeadAdmin from "../molecules/HeadAdmin";
 import Entrada from "../atoms/Entrada";
 import Text from "../atoms/Text";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddEmployees from "../molecules/AddEmployees";
 import AddProducts from "../molecules/AddProducts";
 import EditProducts from "../molecules/EditProducts";
+import RequestsContext from "../../context/RequestContext";
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 const D = styled.div`
     position: relative;
@@ -159,54 +162,67 @@ const B = styled.button`
         font-size: 5px;
     }
 `;
-export default function AdminProducts(){
+export default function AdminProducts() {
     const [mostrarAdd, setMostrarAdd] = useState('none');
     const [turnAdd, setTurnAdd] = useState(true);
 
-    
+    const info = useContext(RequestsContext)
+    const { contextValue, setContextValue } = useContext(AuthContext)
+    const [product, setProduct] = useState([])
+
     const [mostrarEdit, setMostrarEdit] = useState('none');
     const [turnEdit, setTurnEdit] = useState(true);
 
-    const mAdd = ()=>{
-        if(turnAdd){
+    const mAdd = () => {
+        if (turnAdd) {
             setTurnAdd(false);
             setMostrarAdd('block');
         } else {
             setTurnAdd(true);
             setMostrarAdd('none');
-        } 
+        }
     }
 
-    const mEdit = ()=>{
-        if(turnEdit){
+    const mEdit = () => {
+        if (turnEdit) {
             setTurnEdit(false);
             setMostrarEdit('block');
         } else {
             setTurnEdit(true);
             setMostrarEdit('none');
-        } 
+        }
     }
 
-    return(
+    useEffect(() => {
+        axios.get(info.server_uri + "/product/", { headers: { Authorization: `Bearer ${contextValue.token}` } }).then((res) => {
+            console.log(res.data.content)
+            setProduct(res.data.content)
+        }).catch((e) => {
+            console.error(e)
+            alert(e.response.data.message)
+        })
+    }, [])
+
+    return (
         <D>
-            <AddProducts d={mostrarAdd} oc={mAdd}/>
-            <EditProducts d={mostrarEdit} oc={mEdit}/>
-            <HeadAdmin nombre={"Administracion de productos"}/>
+            <AddProducts d={mostrarAdd} oc={mAdd} />
+            <EditProducts d={mostrarEdit} oc={mEdit} />
+            <HeadAdmin nombre={"Administracion de productos"} />
             <Table>
                 <Tr style={{
                     height: "8%",
                     alignItems: "center"
                 }}>
                     <Th style={{
-                        width:"100%",
+                        width: "100%",
                         alignItems: "center",
                         justifyContent: "center",
-                        height:"80%"
+                        height: "80%"
                     }}>
                         <B style={{
-                            width:"50%"
+                            width: "50%"
                         }}
-                        onClick={mAdd}
+                            onClick={mAdd}
                         >Agregar producto</B>
                     </Th>
                 </Tr>
@@ -224,19 +240,25 @@ export default function AdminProducts(){
 
                     </Th>
                 </Tr>
-                <Tr>
-                    <Td>
-                        Nombre Producto
-                    </Td>
-                    <Td style={{
-                        justifyContent: "center"
-                    }}>
-                        1
-                    </Td>
-                    <Td>
-                        <B onClick={mEdit}>Editar</B>
-                    </Td>
-                </Tr>
+                {
+                    product.map((item, index) => {
+                        return (
+                            <Tr key={index}>
+                                <Td>
+                                    {item.name}
+                                </Td>
+                                <Td style={{
+                                    justifyContent: "center"
+                                }}>
+                                    {item.id}
+                                </Td>
+                                <Td>
+                                    <B onClick={mEdit}>Editar</B>
+                                </Td>
+                            </Tr>
+                        )
+                    })
+                }
             </Table>
 
         </D>

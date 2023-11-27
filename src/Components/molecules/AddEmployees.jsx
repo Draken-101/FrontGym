@@ -71,7 +71,6 @@ export default function AddEmployees({ d, oc }) {
         form_to_send.append("role", bodyData.role)
         axios.post(info.server_uri + "/user/register", form_to_send).then((res) => {
             alert("Usuario creado con éxito.")
-            setContextValue(res.data.content.token)
         }).catch((e) => {
             console.error(e)
             alert(e.response.data.message)

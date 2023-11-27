@@ -50,7 +50,7 @@ export default function FormLogin() {
         e.preventDefault();
         axios.post(info.server_uri + "/user/login", bodyData).then((res) => {
             alert("Sesión iniciada con éxito.")
-            setContextValue(res.data.content.token)
+            setContextValue(res.data.content)
         }).catch((e) => {
             console.error(e)
             alert(e.response.data.message)

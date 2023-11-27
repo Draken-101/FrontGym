@@ -58,7 +58,7 @@ export default function AddProducts({ d, oc }) {
         form_to_send.append("amount", bodyData.amount)
         form_to_send.append("description", bodyData.description)
         form_to_send.append("image", bodyData.image)
-        axios.post(info.server_uri + "/product/", form_to_send,{ headers: { Authorization: `Bearer ${contextValue}` } }).then((res) => {
+        axios.post(info.server_uri + "/product/", form_to_send,{ headers: { Authorization: `Bearer ${contextValue.token}` } }).then((res) => {
             alert("Producto creado.")
         }).catch((e) => {
             console.error(e)

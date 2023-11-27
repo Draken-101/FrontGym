@@ -25,11 +25,11 @@ function App() {
 
   return (
     <>
-      {
-        act ? <Administration onClick={Activate} v={"block"} /> : <Administration onClick={Activate} v={"none"} />
-      }
       <AuthContextProvider>
         <RequestsContext.Provider value={setting}>
+          {
+            act ? <Administration onClick={Activate} v={"block"} /> : <Administration onClick={Activate} v={"none"} />
+          }
           <Routes>
             <Route path='/Admin' element={<Administration onClick={Activate} />} />
             <Route path='/' element={<Home />} />

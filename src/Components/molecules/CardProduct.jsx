@@ -23,12 +23,12 @@ const Price = styled.div`
     width: 100%;
 `;
 
-export default function CardProtuct() {
+export default function CardProtuct({src,name, price}) {
     return (
         <D>
-            <ImgProduct  etiqueta={"Rebaja"} />
-            <Text size={"1.5vw"} color={"rgb(167, 0, 0)"} bold={"600"} text={"Nombre Empresa"} />
-            <Text size={"2.5vw"} bold={"600"} text={"Nombre Producto"} />
+            <ImgProduct  etiqueta={"Rebaja"} src={src} />
+            {/* <Text size={"1.5vw"} color={"rgb(167, 0, 0)"} bold={"600"} text={"Nombre Empresa"} /> */}
+            <Text size={"2.5vw"} bold={"600"} text={name} />
             {/* <div className="valoracion">
 
                 <button className="b">
@@ -53,8 +53,8 @@ export default function CardProtuct() {
 
             </div> */}
             <Price>
-                <Text text={"$1500" } size={"1.5vw"} color={"rgb(72, 72, 72)"} tachado={true} bold={"600"}/>
-                <Text text={"$1000"} size={"2vw"} bold={"600"}/>
+                {/* <Text text={"$1500" } size={"1.5vw"} color={"rgb(72, 72, 72)"} tachado={true} bold={"600"}/> */}
+                <Text text={price} size={"2vw"} bold={"600"}/>
             </Price>
         </D>
     );

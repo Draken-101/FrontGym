@@ -64,7 +64,7 @@ export default function FormRegisterU() {
         form_to_send.append("email", bodyData.email)
         axios.post(info.server_uri + "/user/register", form_to_send).then((res) => {
             alert("Usuario creado con éxito.")
-            setContextValue(res.data.content.token)
+            setContextValue(res.data.content)
         }).catch((e) => {
             console.error(e)
             alert(e.response.data.message)
