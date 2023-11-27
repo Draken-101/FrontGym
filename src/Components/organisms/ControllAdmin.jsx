@@ -66,7 +66,7 @@ export default function ControllAdmin({oC, V}) {
                     <Button><BiCube />Productos</Button>
                 </Link>
                 <Link to={"/PayMembership"} className=" w">
-                    <Button><LiaCcDinersClub />Pagar Membrecia</Button>
+                    <Button><LiaCcDinersClub />Pagar Membresía</Button>
                 </Link>
                 <Link to={"/"} className=" w">
                     <Button onClick={oC}><CiLogout /> Salir</Button>

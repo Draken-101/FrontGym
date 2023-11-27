@@ -43,7 +43,7 @@ const Tr = styled.tr`
     position: relative;
     width: 100%;
     display: flex;
-    height: 5%;
+    height: 10%;
     align-items: center;
 `;
 
@@ -183,13 +183,15 @@ export default function AdminEmployees() {
         }
     }
 
-    const mEdit = () => {
-        if (turnEdit) {
-            setTurnEdit(false);
-            setMostrarEdit('block');
-        } else {
-            setTurnEdit(true);
-            setMostrarEdit('none');
+    const mEdit = (index, dbIndex, name) => {
+        if (confirm(`¿Estás seguro que deseas eliminar a ${name}?`)) {
+            setUsers(users.filter((elemento, indice) => indice !== index));
+            axios.delete(info.server_uri + "/user/" + dbIndex, { headers: { Authorization: `Bearer ${contextValue.token}` } }).then((res) => {
+                console.log(res.data.content)
+            }).catch((e) => {
+                console.error(e)
+                alert(e.response.data.message)
+            })
         }
     }
 
@@ -210,13 +212,14 @@ export default function AdminEmployees() {
             <HeadAdmin nombre={"Empleados"} />
             <Table>
                 <Tr style={{
-                    height: "8%",
-                    alignItems: "center"
+                    alignItems: "center",
+                    height:"10%"
                 }}>
                     <Th style={{
                         width: "100%",
                         alignItems: "center",
-                        justifyContent: "center"
+                        justifyContent: "center",
+                        height:"100%"
                     }}>
                         <B style={{
                             width: "50%"
@@ -225,7 +228,9 @@ export default function AdminEmployees() {
                         >Agregar empleado</B>
                     </Th>
                 </Tr>
-                <Tr>
+                <Tr style={{
+                    height:"5%"
+                }}>
                     <E placeholder="Buscar empleado" />
                 </Tr>
                 <Tr>
@@ -262,7 +267,7 @@ export default function AdminEmployees() {
                                     justifyContent: "center"
                                 }}>{user.id}</Td>
                                 <Td>
-                                    <B onClick={mEdit}>Editar</B>
+                                    <B onClick={() => { mEdit(i, user.id, user.name) }}>Eliminar</B>
                                 </Td>
                             </Tr>
                         )

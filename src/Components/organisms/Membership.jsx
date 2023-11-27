@@ -3,6 +3,10 @@ import Logo from "../atoms/Logo";
 import Text from "../atoms/Text";
 import HeadAdmin from "../molecules/HeadAdmin";
 import Form from "../molecules/Form";
+import { useContext, useState } from "react";
+import RequestsContext from "../../context/RequestContext";
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 const D = styled.div`
     position: relative;
@@ -190,12 +194,34 @@ const Select = styled.select`
 `;
 
 export default function Membership() {
-    const inp = ["Nombre","Cantidad","Tiempo", "Precio"]
+    const inp = ["Usuario", "Cantidad", "Tiempo", "Precio"]
+    const info = useContext(RequestsContext);
+    const { contextValue, setContextValue } = useContext(AuthContext)
+    const [bodyData, setBodyData] = useState({});
+
+    const handleInputChange = () => {
+        const { id, value } = event.target;
+        setBodyData((prevData) => ({
+            ...prevData,
+            [id]: value,
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post(info.server_uri + "/user/pay", bodyData, { headers: { Authorization: `Bearer ${contextValue.token}` } }).then((res) => {
+            alert("Membresía actualizada.")
+        }).catch((e) => {
+            console.error(e)
+            alert(e.response.data.message)
+        })
+    };
+
     return (
         <D>
             <HeadAdmin nombre={"Vender Membresia"} />
             <Table>
-                <Form c={"white"} bC={"white"} wi={"100%"} titulo={" "} inputs={inp} nameButon={"Pagar"}/>
+                <Form onChange={handleInputChange} onSubmit={handleSubmit} c={"white"} bC={"white"} wi={"100%"} titulo={" "} inputs={inp} nameButon={"Pagar"} />
             </Table>
         </D>
     );

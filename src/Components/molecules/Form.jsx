@@ -301,15 +301,15 @@ export default function Form({ titulo, inputs, nameButon, c, wi, bC, onChange, o
                                     text={input}
                                     tipo={"number"}
                                     change={(tiempo) => {
-                                        const v = /^[1-9]\d*$/;
+                                        // const v = /^[1-9]\d*$/;
 
-                                        if (v.test(cantidad.target.value) && cantidad.target.value >= 1 || cantidad.target.value === "") {
-                                            setErrorValidarTiempo("");
-                                            setValidarTiempo(cantidad.target.value);
-                                        } else {
-                                            setErrorValidarTiempo("Tiempo no admitida");
-                                            setValidarTiempo(0);
-                                        }
+                                        // if (v.test(cantidad.target.value) && cantidad.target.value >= 1 || cantidad.target.value === "") {
+                                        //     setErrorValidarTiempo("");
+                                        //     setValidarTiempo(cantidad.target.value);
+                                        // } else {
+                                        //     setErrorValidarTiempo("Tiempo no admitida");
+                                        //     setValidarTiempo(0);
+                                        // }
                                         onChange()
                                     }} />
                             </V>)

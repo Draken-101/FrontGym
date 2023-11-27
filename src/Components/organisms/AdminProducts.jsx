@@ -44,7 +44,7 @@ const Tr = styled.tr`
     position: relative;
     width: 100%;
     display: flex;
-    height: 5%;
+    height: 10%;
     align-items: center;
 `;
 
@@ -183,13 +183,15 @@ export default function AdminProducts() {
         }
     }
 
-    const mEdit = () => {
-        if (turnEdit) {
-            setTurnEdit(false);
-            setMostrarEdit('block');
-        } else {
-            setTurnEdit(true);
-            setMostrarEdit('none');
+    const mEdit = (index, dbIndex) => {
+        if (confirm("¿Estás seguro que deseas eliminar este producto?")) {
+            setProduct(product.filter((elemento, indice) => indice !== index));
+            axios.delete(info.server_uri + "/product/" + dbIndex, { headers: { Authorization: `Bearer ${contextValue.token}` } }).then((res) => {
+                console.log(res.data.content)
+            }).catch((e) => {
+                console.error(e)
+                alert(e.response.data.message)
+            })
         }
     }
 
@@ -210,7 +212,7 @@ export default function AdminProducts() {
             <HeadAdmin nombre={"Administracion de productos"} />
             <Table>
                 <Tr style={{
-                    height: "8%",
+                    height: "10%",
                     alignItems: "center"
                 }}>
                     <Th style={{
@@ -253,7 +255,7 @@ export default function AdminProducts() {
                                     {item.id}
                                 </Td>
                                 <Td>
-                                    <B onClick={mEdit}>Editar</B>
+                                    <B onClick={() => { mEdit(index, item.id) }}>Eliminar</B>
                                 </Td>
                             </Tr>
                         )

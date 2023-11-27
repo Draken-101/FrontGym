@@ -179,6 +179,7 @@ export default function Entrada({ text, bgColor, color, wi, he, tipo, change, bl
                 text === "Tiempo" ?
 
                     <Select
+                        id={id}
                         D={Des}
                         CF={colorFont}
                         B={bColor}

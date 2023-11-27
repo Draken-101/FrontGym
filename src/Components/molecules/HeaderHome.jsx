@@ -45,18 +45,31 @@ export default function HeaderHome() {
             <Logo wxh={"40px"} />
             <Ul>
                 {
-                    contextValue !== "" ? <Link to={'/admin'}>Panel</Link> : <></>
+                    contextValue !== "" ? <Link to={"/admin"}>
+                        <Li >
+                            Panel
+                        </Li>
+                    </Link> : <></>
                 }
                 <Link to={"/Shop"}>
                     <Li >
                         Tienda
                     </Li>
                 </Link>
-                <Link to={"/Login"}>
-                    <Li className="Btn shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
-                        Iniciar Secion
-                    </Li>
-                </Link>
+                {
+                    !contextValue.token ?
+                        <Link to={"/Login"}>
+                            <Li className="Btn shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+                                Iniciar Sesion
+                            </Li>
+                        </Link>
+                        :
+                        <Link to={"/Profile"}>
+                            <Li className="Btn shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+                                Perfil
+                            </Li>
+                        </Link>
+                }
             </Ul>
         </HeaderDiv>
     );

@@ -4,6 +4,8 @@ import { BiCart } from "react-icons/bi";
 import styled from 'styled-components';
 import HeaderDiv from '../atoms/HeaderDiv';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+import { useContext } from 'react';
 
 
 const Ul = styled.ul`
@@ -41,15 +43,25 @@ const Li = styled.li`
 `;
 
 export default function HeaderShop() {
+    const { contextValue, setContextValue } = useContext(AuthContext)
     return (
         <HeaderDiv>
             <Logo wxh={"8vh"} />
             <Ul>
-                <Link to={"/"}>
-                    <Li>
-                        Perfil
-                    </Li>
-                </Link>
+                {
+                    !contextValue.token ?
+                        <Link to={"/Login"}>
+                            <Li className="shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+                                Iniciar Sesion
+                            </Li>
+                        </Link>
+                        :
+                        <Link to={"/Profile"}>
+                            <Li className="shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+                                Perfil
+                            </Li>
+                        </Link>
+                }
 
                 <Link to={"/"}>
                     <Li>Home</Li>
