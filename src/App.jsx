@@ -12,6 +12,7 @@ import PayMembership from './pages/PayMembership';
 import Products from './pages/Products';
 import Employees from './pages/Employees';
 import { useState } from 'react';
+import ProductPage from './pages/ProductPage';
 
 function App() {
   const [act, setAct] = useState(true);
@@ -36,6 +37,7 @@ function App() {
         <Route path='/CarShop' element={<CarShop/>}/>
         <Route path='/Register' element={<Register/>}/>
         <Route path='/Login' element={<Login/>}/>
+        <Route path='/Product' element={<ProductPage/>}/>
       </Routes>
     </>
   )

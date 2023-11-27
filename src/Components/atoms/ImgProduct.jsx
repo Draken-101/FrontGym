@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Text from "./Text";
 
 const Img = styled.button`
+    cursor: pointer;
     position: relative;
     display:flex;
     text-align:center;

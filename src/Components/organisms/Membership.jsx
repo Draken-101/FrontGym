@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Logo from "../atoms/Logo";
 import Text from "../atoms/Text";
 import HeadAdmin from "../molecules/HeadAdmin";
+import Form from "../molecules/Form";
 
 const D = styled.div`
     position: relative;
@@ -18,12 +19,15 @@ const D = styled.div`
     background-color: white;
 `;
 
-const Table = styled.table`
+const Table = styled.div`
     position: relative;
     display: flex;
     padding: 2vw;
-    width: 100%;
+    width: 94%;
     flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
     height: 50%;
     gap: 2%;
     background-color: #4e0000;
@@ -186,51 +190,12 @@ const Select = styled.select`
 `;
 
 export default function Membership() {
+    const inp = ["Nombre","Cantidad","Tiempo", "Precio"]
     return (
         <D>
             <HeadAdmin nombre={"Vender Membresia"} />
             <Table>
-                <Tr>
-                    <Td style={{
-                        width: "100%"
-                    }}>
-                        <E 
-                        type="number"
-                        placeholder="Nombre/ID" />
-                    </Td>
-                </Tr>
-                <Tr>
-                    <Td style={{
-                        width: "50%"
-                    }}>
-                        <E 
-                        type="number"
-                        style={{
-                            width: "70%"
-                        }}
-                        placeholder="Cantidad" />
-                    </Td>
-                    <Td style={{
-                        width: "20%"
-                    }}>
-                        <Select >
-                            <option>Tiempo</option>
-                            <option>Dia</option>
-                            <option>Mes</option>
-                            <option>Año</option>
-                        </Select>
-                    </Td>
-                    <Td style={{
-                        width: "50%"
-                    }}>
-                        <E 
-                        type="number"
-                        style={{
-                            width: "70%"
-                        }}
-                        placeholder="Precio" />
-                    </Td>
-                </Tr>
+                <Form c={"white"} bC={"white"} wi={"100%"} titulo={" "} inputs={inp} nameButon={"Pagar"}/>
             </Table>
         </D>
     );
