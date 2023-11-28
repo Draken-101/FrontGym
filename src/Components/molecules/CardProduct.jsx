@@ -23,9 +23,9 @@ const Price = styled.div`
     width: 100%;
 `;
 
-export default function CardProtuct({src,name, price}) {
+export default function CardProtuct({src,name, price, onClick}) {
     return (
-        <D>
+        <D onClick={onClick}>
             <ImgProduct  etiqueta={"Rebaja"} src={src} />
             {/* <Text size={"1.5vw"} color={"rgb(167, 0, 0)"} bold={"600"} text={"Nombre Empresa"} /> */}
             <Text size={"2.5vw"} bold={"600"} text={name} />

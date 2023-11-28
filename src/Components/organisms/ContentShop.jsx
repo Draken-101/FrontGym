@@ -30,6 +30,22 @@ export default function ContentShop() {
             alert(e.response.data.message)
         })
     }, [])
+
+    function handlerClick(product_id) {
+        axios.post(info.server_uri + "/cart/", {
+            amount: 1,
+            product: product_id
+        },
+            {
+                headers: { Authorization: `Bearer ${contextValue.token}` }
+            }).then((res) => {
+                alert("Producto añadido a tu carro.")
+            }).catch((e) => {
+                console.error(e)
+                alert(e.response.data.message)
+            })
+    }
+
     return (
         <D>
             <div className="HeadShop" style={{
@@ -63,6 +79,7 @@ export default function ContentShop() {
                                 name={item.name}
                                 price={`$${item.price.toFixed(2)}`}
                                 src={info.server_uri + "/" + item.img}
+                                onClick={() => { handlerClick(item.id) }}
                             />
                         )
                     })

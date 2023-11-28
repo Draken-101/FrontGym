@@ -80,7 +80,7 @@ export default function ImgProduct({etiqueta, src}){
                 width:"100%",
                 height:"100%"
             }}/>
-            <T >Comprar</T>
+            <T >Añadir al carrito</T>
         </Img>
     );
 };

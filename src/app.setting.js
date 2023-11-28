@@ -1,5 +1,5 @@
 const setting = {
-    server_host: "192.168.43.194",
+    server_host: "192.168.206.194",
     server_port: 3030,
     server_protocol: "http",
     server_uri: null

@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import Logo from "../atoms/Logo";
 import '../../assets/Styles/ContentCarShop.css'
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import RequestsContext from "../../context/RequestContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Count = styled.input`
     width: 50%;
@@ -95,8 +98,25 @@ export default function ContentCarShop() {
     const calcularPrecio = (p) => {
         setPrecio(pre * p.target.value);
     }
+
+    const info = useContext(RequestsContext)
+    const { contextValue, setContextValue } = useContext(AuthContext)
+    const [product, setProduct] = useState([])
+
+    useEffect(() => {
+        axios.get(info.server_uri + "/cart/", { headers: { Authorization: `Bearer ${contextValue.token}` } }).then((res) => {
+            setProduct(res.data.content)
+            console.log(product)
+        }).catch((e) => {
+            console.error(e)
+            alert(e.response.data.message)
+        })
+    }, [])
+
     return (
-        <div>
+        <div style={{
+            backgroundColor: "gray"
+        }}>
             <Table>
                 <Tr className="">
                     <Th>Producto</Th>
@@ -104,30 +124,39 @@ export default function ContentCarShop() {
                     <Th>Cantidad</Th>
                     <Th>Precio</Th>
                 </Tr>
-                <Tr>
-                    <Td>
-                        <D>
-                            <Logo wxh={"15vw"} newImg={""} />
-                        </D>
-                    </Td>
-                    <Td>
-                        C4-600mg
-                    </Td>
-                    <Td style={{
-                        padding: "0 0 0 10px"
-                    }}>
-                        <Count type="number" min={1} onChange={calcularPrecio} />
-                    </Td>
-                    <Td>
-                        ${precio}
-                    </Td>
-                </Tr>
+
+                {
+                    product.map((item, index) => {
+                        return (
+                            <Tr key={index}>
+                                <Td>
+                                    <D>
+                                        <Logo wxh={"15vw"} newImg={info.server_uri + "/" + item.img} />
+                                    </D>
+                                </Td>
+                                <Td>
+                                    {item.name}
+                                </Td>
+                                <Td style={{
+                                    padding: "0 0 0 10px"
+                                }}>
+                                    <Count type="number" min={1} onChange={calcularPrecio} />
+                                </Td>
+                                <Td>
+                                    {item.price}
+                                </Td>
+                            </Tr>
+                        )
+                    })
+                }
+
+
             </Table>
             <Total>
-                    <Th></Th>
-                    <Th></Th>
-                    <Th>Total</Th>
-                    <Th>${precio}</Th>
+                <Th></Th>
+                <Th></Th>
+                <Th>Total</Th>
+                <Th>${precio}</Th>
             </Total>
         </div>
     );
