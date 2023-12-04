@@ -14,6 +14,7 @@ import EmployeesList from '../pages/EmployeesList'
 import Edit from '../pages/Edit'
 import ProductList from '../pages/ProductList'
 import CreateProduct from '../pages/CreateProduct'
+import Memberships from '../pages/Memberships'
 
 settings["uri"] = `${settings.app_protocol}://${settings.app_host}:${settings.app_port}`
 
@@ -60,6 +61,15 @@ export default function Router() {
                                     redirect_to="/"
                                     roles_admisibles={["admin"]}
                                     component={<EmployeesList />}
+                                />
+                            } />
+
+                            <Route path='/memberships' element={
+                                <PrivateRouter
+                                    require_authentication={true}
+                                    redirect_to="/"
+                                    roles_admisibles={["admin"]}
+                                    component={<Memberships />}
                                 />
                             } />
 

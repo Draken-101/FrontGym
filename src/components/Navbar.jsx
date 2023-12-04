@@ -22,7 +22,8 @@ const pages = [['Tienda', '/shop'],];
 const protected_pages = [['Carrito', '/cart'],];
 const private_pages = [['Clientes', '/clients'], ['Empleados', '/employees'],
 ['Productos', '/products'],
-['Añadir usuario', '/join']];
+['Añadir usuario', '/join'],
+['Pagar Membresia', '/memberships']];
 const settings = [
     // ['Profile', '/profile'], 
     ['Logout', '/exit']];
